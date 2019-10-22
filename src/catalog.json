@@ -1,0 +1,2604 @@
+{
+  "projectId": "i6q0z85ef4hj57n9tms73bwe3zpgognw",
+  "measures": {
+    "Count of Action Items": {
+      "identifier": "ab0qYwrFcN8P",
+      "tags": "",
+      "title": "Count of Action Items"
+    },
+    "Count of Action Items Closed On Time": {
+      "identifier": "amRqBJUaaWSt",
+      "tags": "",
+      "title": "Count of Action Items Closed On Time"
+    },
+    "Count of Action Items Closed or Overdue": {
+      "identifier": "aduqYXh6cN0Z",
+      "tags": "",
+      "title": "Count of Action Items Closed or Overdue"
+    },
+    "Days Overdue": {
+      "identifier": "fact.taskfact.daysoverdue",
+      "tags": "",
+      "title": "Days Overdue"
+    },
+    "Days til Close": {
+      "identifier": "fact.taskfact.daystilclose",
+      "tags": "",
+      "title": "Days til Close"
+    },
+    "Days Until Due": {
+      "identifier": "fact.taskfact.daysuntildue",
+      "tags": "",
+      "title": "Days Until Due"
+    },
+    "Labour Hours": {
+      "identifier": "fact.locationfact.labourhours",
+      "tags": "",
+      "title": "Labour Hours"
+    },
+    "Number of Contractors": {
+      "identifier": "fact.locationfact.numberofcontractors",
+      "tags": "",
+      "title": "Number of Contractors"
+    },
+    "Number of Days Overdue": {
+      "identifier": "adOqSkzKap8Y",
+      "tags": "",
+      "title": "Number of Days Overdue"
+    },
+    "Number of Days til Close": {
+      "identifier": "aexqSuGlaxHG",
+      "tags": "",
+      "title": "Number of Days til Close"
+    },
+    "Number of Days Until Due": {
+      "identifier": "acSqYthna1eD",
+      "tags": "",
+      "title": "Number of Days Until Due"
+    },
+    "Number of Employees": {
+      "identifier": "fact.locationfact.numberofemployees",
+      "tags": "",
+      "title": "Number of Employees"
+    },
+    "Number of Temporary Contractors": {
+      "identifier": "fact.locationfact.numberoftemporarycontractors",
+      "tags": "",
+      "title": "Number of Temporary Contractors"
+    },
+    "Number of Temporary Employees": {
+      "identifier": "fact.locationfact.numberoftemporaryemployees",
+      "tags": "",
+      "title": "Number of Temporary Employees"
+    },
+    "On Time Closure Rate": {
+      "identifier": "acFqYHQla1hQ",
+      "tags": "",
+      "title": "On Time Closure Rate"
+    },
+    "Total Head Count": {
+      "identifier": "fact.locationfact.totalheadcount",
+      "tags": "",
+      "title": "Total Head Count"
+    }
+  },
+  "attributes": {
+    "Calendar Type": {
+      "identifier": "attr.locationfact.calendartype",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.locationfact.calendartype",
+        "tags": "",
+        "title": "Calendar Type"
+      },
+      "displayForms": {
+        "Calendar Type": {
+          "dfIdentifier": "label.locationfact.calendartype",
+          "identifier": "label.locationfact.calendartype",
+          "tags": "",
+          "dfTags": "",
+          "title": "Calendar Type"
+        }
+      },
+      "title": "Calendar Type"
+    },
+    "Capture Frequency": {
+      "identifier": "attr.locationfact.capturefrequency",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.locationfact.capturefrequency",
+        "tags": "",
+        "title": "Capture Frequency"
+      },
+      "displayForms": {
+        "Capture Frequency": {
+          "dfIdentifier": "label.locationfact.capturefrequency",
+          "identifier": "label.locationfact.capturefrequency",
+          "tags": "",
+          "dfTags": "",
+          "title": "Capture Frequency"
+        }
+      },
+      "title": "Capture Frequency"
+    },
+    "Delegated Person": {
+      "identifier": "attr.taskfact.delegatedperson",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.delegatedperson",
+        "tags": "",
+        "title": "Delegated Person"
+      },
+      "displayForms": {
+        "Delegated Person": {
+          "dfIdentifier": "label.taskfact.delegatedperson",
+          "identifier": "label.taskfact.delegatedperson",
+          "tags": "",
+          "dfTags": "",
+          "title": "Delegated Person"
+        }
+      },
+      "title": "Delegated Person"
+    },
+    "Location ID": {
+      "identifier": "attr.location.locationid",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.location.locationid",
+        "tags": "",
+        "title": "Location ID"
+      },
+      "displayForms": {
+        "Location ID": {
+          "dfIdentifier": "label.location.locationid",
+          "identifier": "label.location.locationid",
+          "tags": "",
+          "dfTags": "",
+          "title": "Location ID"
+        }
+      },
+      "title": "Location ID"
+    },
+    "Period Type": {
+      "identifier": "attr.locationfact.periodtype",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.locationfact.periodtype",
+        "tags": "",
+        "title": "Period Type"
+      },
+      "displayForms": {
+        "Period Type": {
+          "dfIdentifier": "label.locationfact.periodtype",
+          "identifier": "label.locationfact.periodtype",
+          "tags": "",
+          "dfTags": "",
+          "title": "Period Type"
+        }
+      },
+      "title": "Period Type"
+    },
+    "Person Responsible for Verification": {
+      "identifier": "attr.taskfact.personresponsibleforverification",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.personresponsibleforverification",
+        "tags": "",
+        "title": "Person Responsible for Verification"
+      },
+      "displayForms": {
+        "Person Responsible for Verification": {
+          "dfIdentifier": "label.taskfact.personresponsibleforverification",
+          "identifier": "label.taskfact.personresponsibleforverification",
+          "tags": "",
+          "dfTags": "",
+          "title": "Person Responsible for Verification"
+        }
+      },
+      "title": "Person Responsible for Verification"
+    },
+    "Responsible Person ID": {
+      "identifier": "attr.responsibleperson.responsiblepersonid",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.responsibleperson.responsiblepersonid",
+        "tags": "",
+        "title": "Responsible Person ID"
+      },
+      "displayForms": {
+        "Responsible Person ID": {
+          "dfIdentifier": "label.responsibleperson.responsiblepersonid",
+          "identifier": "label.responsibleperson.responsiblepersonid",
+          "tags": "",
+          "dfTags": "",
+          "title": "Responsible Person ID"
+        },
+        "Responsible Person Name": {
+          "dfIdentifier": "label.responsibleperson.responsiblepersonid.responsiblepersonname",
+          "identifier": "label.responsibleperson.responsiblepersonid.responsiblepersonname",
+          "tags": "",
+          "dfTags": "",
+          "title": "Responsible Person Name"
+        }
+      },
+      "title": "Responsible Person ID"
+    },
+    "Task Active Flag": {
+      "identifier": "attr.taskfact.taskactiveflag",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.taskactiveflag",
+        "tags": "",
+        "title": "Task Active Flag"
+      },
+      "displayForms": {
+        "Task Active Flag": {
+          "dfIdentifier": "label.taskfact.taskactiveflag",
+          "identifier": "label.taskfact.taskactiveflag",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Active Flag"
+        }
+      },
+      "title": "Task Active Flag"
+    },
+    "Task Assigner": {
+      "identifier": "attr.taskfact.taskassigner",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.taskassigner",
+        "tags": "",
+        "title": "Task Assigner"
+      },
+      "displayForms": {
+        "Task Assigner": {
+          "dfIdentifier": "label.taskfact.taskassigner",
+          "identifier": "label.taskfact.taskassigner",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Assigner"
+        }
+      },
+      "title": "Task Assigner"
+    },
+    "Task Category": {
+      "identifier": "attr.taskfact.taskcategory",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.taskcategory",
+        "tags": "",
+        "title": "Task Category"
+      },
+      "displayForms": {
+        "Task Category": {
+          "dfIdentifier": "label.taskfact.taskcategory",
+          "identifier": "label.taskfact.taskcategory",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Category"
+        }
+      },
+      "title": "Task Category"
+    },
+    "Task Closer": {
+      "identifier": "attr.taskfact.taskcloser",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.taskcloser",
+        "tags": "",
+        "title": "Task Closer"
+      },
+      "displayForms": {
+        "Task Closer": {
+          "dfIdentifier": "label.taskfact.taskcloser",
+          "identifier": "label.taskfact.taskcloser",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Closer"
+        }
+      },
+      "title": "Task Closer"
+    },
+    "Task Creator ID": {
+      "identifier": "attr.taskcreator.taskcreatorid",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskcreator.taskcreatorid",
+        "tags": "",
+        "title": "Task Creator ID"
+      },
+      "displayForms": {
+        "Task Creator ID": {
+          "dfIdentifier": "label.taskcreator.taskcreatorid",
+          "identifier": "label.taskcreator.taskcreatorid",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Creator ID"
+        },
+        "Task Creator Name": {
+          "dfIdentifier": "label.taskcreator.taskcreatorid.taskcreatorname",
+          "identifier": "label.taskcreator.taskcreatorid.taskcreatorname",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Creator Name"
+        }
+      },
+      "title": "Task Creator ID"
+    },
+    "Task ID": {
+      "identifier": "attr.taskfact.taskid",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.taskid",
+        "tags": "",
+        "title": "Task ID"
+      },
+      "displayForms": {
+        "Task ID": {
+          "dfIdentifier": "label.taskfact.taskid",
+          "identifier": "label.taskfact.taskid",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task ID"
+        }
+      },
+      "title": "Task ID"
+    },
+    "Task Offline Source": {
+      "identifier": "attr.taskfact.taskofflinesource",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.taskofflinesource",
+        "tags": "",
+        "title": "Task Offline Source"
+      },
+      "displayForms": {
+        "Task Offline Source": {
+          "dfIdentifier": "label.taskfact.taskofflinesource",
+          "identifier": "label.taskfact.taskofflinesource",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Offline Source"
+        }
+      },
+      "title": "Task Offline Source"
+    },
+    "Task OnTime Closure Status": {
+      "identifier": "attr.taskfact.taskontimeclosurestatus",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.taskontimeclosurestatus",
+        "tags": "",
+        "title": "Task OnTime Closure Status"
+      },
+      "displayForms": {
+        "Task OnTime Closure Status": {
+          "dfIdentifier": "label.taskfact.taskontimeclosurestatus",
+          "identifier": "label.taskfact.taskontimeclosurestatus",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task OnTime Closure Status"
+        }
+      },
+      "title": "Task OnTime Closure Status"
+    },
+    "Task Priority": {
+      "identifier": "attr.taskfact.taskpriority",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.taskpriority",
+        "tags": "",
+        "title": "Task Priority"
+      },
+      "displayForms": {
+        "Task Priority": {
+          "dfIdentifier": "label.taskfact.taskpriority",
+          "identifier": "label.taskfact.taskpriority",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Priority"
+        }
+      },
+      "title": "Task Priority"
+    },
+    "Task Root Cause": {
+      "identifier": "attr.taskrootcause.taskrootcause",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskrootcause.taskrootcause",
+        "tags": "",
+        "title": "Task Root Cause"
+      },
+      "displayForms": {
+        "Task Root Cause": {
+          "dfIdentifier": "label.taskrootcause.taskrootcause",
+          "identifier": "label.taskrootcause.taskrootcause",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Root Cause"
+        }
+      },
+      "title": "Task Root Cause"
+    },
+    "Task Source": {
+      "identifier": "attr.taskfact.tasksource",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.tasksource",
+        "tags": "",
+        "title": "Task Source"
+      },
+      "displayForms": {
+        "Task Source": {
+          "dfIdentifier": "label.taskfact.tasksource",
+          "identifier": "label.taskfact.tasksource",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Source"
+        }
+      },
+      "title": "Task Source"
+    },
+    "Task Status": {
+      "identifier": "attr.taskfact.taskstatus",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.taskstatus",
+        "tags": "",
+        "title": "Task Status"
+      },
+      "displayForms": {
+        "Task Status": {
+          "dfIdentifier": "label.taskfact.taskstatus",
+          "identifier": "label.taskfact.taskstatus",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Status"
+        }
+      },
+      "title": "Task Status"
+    },
+    "Task Status Code": {
+      "identifier": "attr.taskfact.taskstatuscode",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.taskfact.taskstatuscode",
+        "tags": "",
+        "title": "Task Status Code"
+      },
+      "displayForms": {
+        "Task Status Code": {
+          "dfIdentifier": "label.taskfact.taskstatuscode",
+          "identifier": "label.taskfact.taskstatuscode",
+          "tags": "",
+          "dfTags": "",
+          "title": "Task Status Code"
+        }
+      },
+      "title": "Task Status Code"
+    },
+    "Year": {
+      "identifier": "attr.locationfact.year",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.locationfact.year",
+        "tags": "",
+        "title": "Year"
+      },
+      "displayForms": {
+        "Year": {
+          "dfIdentifier": "label.locationfact.year",
+          "identifier": "label.locationfact.year",
+          "tags": "",
+          "dfTags": "",
+          "title": "Year"
+        }
+      },
+      "title": "Year"
+    }
+  },
+  "visualizations": {
+    "Validation: Action Items Count + Rate": {
+      "identifier": "acNqYHTicOez",
+      "tags": "",
+      "title": "Validation: Action Items Count + Rate"
+    },
+    "Validation: Days Metrics": {
+      "identifier": "afGqRrp0iyxb",
+      "tags": "",
+      "title": "Validation: Days Metrics"
+    }
+  },
+  "dateDataSets": {
+    "Date (Task Assigned Date)": {
+      "identifier": "taskassigneddate.dataset.dt",
+      "tags": "",
+      "attributes": {
+        "Year (Task Assigned Date)": {
+          "identifier": "taskassigneddate.year",
+          "tags": "date year",
+          "title": "Year (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.aag81lMifn6q",
+            "tags": "",
+            "title": "Year (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Year (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aag81lMifn6q",
+              "tags": "",
+              "title": "Year (Task Assigned Date)"
+            }
+          }
+        },
+        "Quarter (Task Assigned Date)": {
+          "identifier": "taskassigneddate.quarter.in.year",
+          "tags": "date quarter year",
+          "title": "Quarter (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.aam81lMifn6q",
+            "tags": "",
+            "title": "default (Task Assigned Date)"
+          },
+          "displayForms": {
+            "default (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aam81lMifn6q",
+              "tags": "",
+              "title": "default (Task Assigned Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat)/Year (Task Assigned Date)": {
+          "identifier": "taskassigneddate.week",
+          "tags": "date week",
+          "title": "Week (Sun-Sat)/Year (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.aaA81lMifn6q",
+            "tags": "",
+            "title": "Week #/Year (W1/2010) (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aaA81lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (W1/2010) (Task Assigned Date)"
+            },
+            "Week Starting (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aaw81lMifn6q",
+              "tags": "",
+              "title": "Week Starting (Task Assigned Date)"
+            },
+            "From - To (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aau81lMifn6q",
+              "tags": "",
+              "title": "From - To (Task Assigned Date)"
+            },
+            "Week #/Year (Cont.) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aay81lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (Cont.) (Task Assigned Date)"
+            },
+            "Wk/Qtr/Year (Cont.) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aaC81lMifn6q",
+              "tags": "",
+              "title": "Wk/Qtr/Year (Cont.) (Task Assigned Date)"
+            },
+            "Wk/Qtr/Year (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aas81lMifn6q",
+              "tags": "",
+              "title": "Wk/Qtr/Year (Task Assigned Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat) (Task Assigned Date)": {
+          "identifier": "taskassigneddate.week.in.year",
+          "tags": "date week year",
+          "title": "Week (Sun-Sat) (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.aaI81lMifn6q",
+            "tags": "",
+            "title": "Number US (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Number US (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aaI81lMifn6q",
+              "tags": "",
+              "title": "Number US (Task Assigned Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat) of Qtr (Task Assigned Date)": {
+          "identifier": "taskassigneddate.week.in.quarter",
+          "tags": "date quarter week",
+          "title": "Week (Sun-Sat) of Qtr (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.aaO81lMifn6q",
+            "tags": "",
+            "title": "Number US (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Number US (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aaO81lMifn6q",
+              "tags": "",
+              "title": "Number US (Task Assigned Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun)/Year (Task Assigned Date)": {
+          "identifier": "taskassigneddate.euweek",
+          "tags": "date eu week",
+          "title": "Week (Mon-Sun)/Year (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.aa281lMifn6q",
+            "tags": "",
+            "title": "Week #/Year (W1/2010) (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aa281lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (W1/2010) (Task Assigned Date)"
+            },
+            "Week Starting (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aaY81lMifn6q",
+              "tags": "",
+              "title": "Week Starting (Task Assigned Date)"
+            },
+            "From - To (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aaW81lMifn6q",
+              "tags": "",
+              "title": "From - To (Task Assigned Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun) (Task Assigned Date)": {
+          "identifier": "taskassigneddate.euweek.in.year",
+          "tags": "date eu week year",
+          "title": "Week (Mon-Sun) (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.aba81lMifn6q",
+            "tags": "",
+            "title": "Number EU (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Number EU (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aba81lMifn6q",
+              "tags": "",
+              "title": "Number EU (Task Assigned Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun) of Qtr (Task Assigned Date)": {
+          "identifier": "taskassigneddate.euweek.in.quarter",
+          "tags": "date eu quarter week",
+          "title": "Week (Mon-Sun) of Qtr (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.abg81lMifn6q",
+            "tags": "",
+            "title": "Number EU (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Number EU (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abg81lMifn6q",
+              "tags": "",
+              "title": "Number EU (Task Assigned Date)"
+            }
+          }
+        },
+        "Month (Task Assigned Date)": {
+          "identifier": "taskassigneddate.month.in.year",
+          "tags": "date month year",
+          "title": "Month (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.abm81lMifn6q",
+            "tags": "",
+            "title": "Short (Jan) (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Short (Jan) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abm81lMifn6q",
+              "tags": "",
+              "title": "Short (Jan) (Task Assigned Date)"
+            },
+            "Long (January) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abs81lMifn6q",
+              "tags": "",
+              "title": "Long (January) (Task Assigned Date)"
+            },
+            "Number (M1) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abq81lMifn6q",
+              "tags": "",
+              "title": "Number (M1) (Task Assigned Date)"
+            },
+            "M/Q (M1/Q1) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abo81lMifn6q",
+              "tags": "",
+              "title": "M/Q (M1/Q1) (Task Assigned Date)"
+            }
+          }
+        },
+        "Month of Quarter (Task Assigned Date)": {
+          "identifier": "taskassigneddate.month.in.quarter",
+          "tags": "date month quarter",
+          "title": "Month of Quarter (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.aby81lMifn6q",
+            "tags": "",
+            "title": "Number (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Number (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aby81lMifn6q",
+              "tags": "",
+              "title": "Number (Task Assigned Date)"
+            }
+          }
+        },
+        "Day of Year (Task Assigned Date)": {
+          "identifier": "taskassigneddate.day.in.year",
+          "tags": "date day year",
+          "title": "Day of Year (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.abE81lMifn6q",
+            "tags": "",
+            "title": "default (Task Assigned Date)"
+          },
+          "displayForms": {
+            "default (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abE81lMifn6q",
+              "tags": "",
+              "title": "default (Task Assigned Date)"
+            }
+          }
+        },
+        "Day of Week (Sun-Sat) (Task Assigned Date)": {
+          "identifier": "taskassigneddate.day.in.week",
+          "tags": "date day week",
+          "title": "Day of Week (Sun-Sat) (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.abK81lMifn6q",
+            "tags": "",
+            "title": "Short (Sun) (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Short (Sun) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abK81lMifn6q",
+              "tags": "",
+              "title": "Short (Sun) (Task Assigned Date)"
+            },
+            "Long (Sunday) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abO81lMifn6q",
+              "tags": "",
+              "title": "Long (Sunday) (Task Assigned Date)"
+            },
+            "Number (1=Sunday) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abM81lMifn6q",
+              "tags": "",
+              "title": "Number (1=Sunday) (Task Assigned Date)"
+            }
+          }
+        },
+        "Day of Week (Mon-Sun) (Task Assigned Date)": {
+          "identifier": "taskassigneddate.day.in.euweek",
+          "tags": "date day eu week",
+          "title": "Day of Week (Mon-Sun) (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.abU81lMifn6q",
+            "tags": "",
+            "title": "Short (Mon) (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Short (Mon) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abU81lMifn6q",
+              "tags": "",
+              "title": "Short (Mon) (Task Assigned Date)"
+            },
+            "Long (Monday) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abY81lMifn6q",
+              "tags": "",
+              "title": "Long (Monday) (Task Assigned Date)"
+            },
+            "Number (1=Monday) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.abW81lMifn6q",
+              "tags": "",
+              "title": "Number (1=Monday) (Task Assigned Date)"
+            }
+          }
+        },
+        "Day of Quarter (Task Assigned Date)": {
+          "identifier": "taskassigneddate.day.in.quarter",
+          "tags": "date day quarter",
+          "title": "Day of Quarter (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.ab481lMifn6q",
+            "tags": "",
+            "title": "default (Task Assigned Date)"
+          },
+          "displayForms": {
+            "default (Task Assigned Date)": {
+              "identifier": "taskassigneddate.ab481lMifn6q",
+              "tags": "",
+              "title": "default (Task Assigned Date)"
+            }
+          }
+        },
+        "Day of Month (Task Assigned Date)": {
+          "identifier": "taskassigneddate.day.in.month",
+          "tags": "date day month",
+          "title": "Day of Month (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.aca81lMifn6q",
+            "tags": "",
+            "title": "default (Task Assigned Date)"
+          },
+          "displayForms": {
+            "default (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aca81lMifn6q",
+              "tags": "",
+              "title": "default (Task Assigned Date)"
+            }
+          }
+        },
+        "Quarter/Year (Task Assigned Date)": {
+          "identifier": "taskassigneddate.quarter",
+          "tags": "date quarter",
+          "title": "Quarter/Year (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.aci81lMifn6q",
+            "tags": "",
+            "title": "US Short (Task Assigned Date)"
+          },
+          "displayForms": {
+            "US Short (Task Assigned Date)": {
+              "identifier": "taskassigneddate.aci81lMifn6q",
+              "tags": "",
+              "title": "US Short (Task Assigned Date)"
+            }
+          }
+        },
+        "Month/Year (Task Assigned Date)": {
+          "identifier": "taskassigneddate.month",
+          "tags": "date month",
+          "title": "Month/Year (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.act81lMifn6q",
+            "tags": "",
+            "title": "Short (Jan 2010) (Task Assigned Date)"
+          },
+          "displayForms": {
+            "Short (Jan 2010) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.act81lMifn6q",
+              "tags": "",
+              "title": "Short (Jan 2010) (Task Assigned Date)"
+            },
+            "Long (January 2010) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.acx81lMifn6q",
+              "tags": "",
+              "title": "Long (January 2010) (Task Assigned Date)"
+            },
+            "Number (1/2010) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.acv81lMifn6q",
+              "tags": "",
+              "title": "Number (1/2010) (Task Assigned Date)"
+            }
+          }
+        },
+        "Date (Task Assigned Date)": {
+          "identifier": "taskassigneddate.date",
+          "tags": "date",
+          "title": "Date (Task Assigned Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskassigneddate.date.mmddyyyy",
+            "tags": "",
+            "title": "mm/dd/yyyy (Task Assigned Date)"
+          },
+          "displayForms": {
+            "mm/dd/yyyy (Task Assigned Date)": {
+              "identifier": "taskassigneddate.date.mmddyyyy",
+              "tags": "",
+              "title": "mm/dd/yyyy (Task Assigned Date)"
+            },
+            "yyyy-mm-dd (Task Assigned Date)": {
+              "identifier": "taskassigneddate.date.yyyymmdd",
+              "tags": "",
+              "title": "yyyy-mm-dd (Task Assigned Date)"
+            },
+            "m/d/yy (no leading zeroes) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.date.mdyy",
+              "tags": "",
+              "title": "m/d/yy (no leading zeroes) (Task Assigned Date)"
+            },
+            "Long (Mon, Jan 1, 2010) (Task Assigned Date)": {
+              "identifier": "taskassigneddate.date.long",
+              "tags": "",
+              "title": "Long (Mon, Jan 1, 2010) (Task Assigned Date)"
+            },
+            "dd/mm/yyyy (Task Assigned Date)": {
+              "identifier": "taskassigneddate.date.ddmmyyyy",
+              "tags": "",
+              "title": "dd/mm/yyyy (Task Assigned Date)"
+            },
+            "dd-mm-yyyy (Task Assigned Date)": {
+              "identifier": "taskassigneddate.date.eddmmyyyy",
+              "tags": "",
+              "title": "dd-mm-yyyy (Task Assigned Date)"
+            }
+          }
+        }
+      },
+      "title": "Date (Task Assigned Date)"
+    },
+    "Date (Task Due Date)": {
+      "identifier": "taskduedate.dataset.dt",
+      "tags": "",
+      "attributes": {
+        "Year (Task Due Date)": {
+          "identifier": "taskduedate.year",
+          "tags": "date year",
+          "title": "Year (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.aag81lMifn6q",
+            "tags": "",
+            "title": "Year (Task Due Date)"
+          },
+          "displayForms": {
+            "Year (Task Due Date)": {
+              "identifier": "taskduedate.aag81lMifn6q",
+              "tags": "",
+              "title": "Year (Task Due Date)"
+            }
+          }
+        },
+        "Quarter (Task Due Date)": {
+          "identifier": "taskduedate.quarter.in.year",
+          "tags": "date quarter year",
+          "title": "Quarter (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.aam81lMifn6q",
+            "tags": "",
+            "title": "default (Task Due Date)"
+          },
+          "displayForms": {
+            "default (Task Due Date)": {
+              "identifier": "taskduedate.aam81lMifn6q",
+              "tags": "",
+              "title": "default (Task Due Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat)/Year (Task Due Date)": {
+          "identifier": "taskduedate.week",
+          "tags": "date week",
+          "title": "Week (Sun-Sat)/Year (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.aaA81lMifn6q",
+            "tags": "",
+            "title": "Week #/Year (W1/2010) (Task Due Date)"
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Task Due Date)": {
+              "identifier": "taskduedate.aaA81lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (W1/2010) (Task Due Date)"
+            },
+            "Week Starting (Task Due Date)": {
+              "identifier": "taskduedate.aaw81lMifn6q",
+              "tags": "",
+              "title": "Week Starting (Task Due Date)"
+            },
+            "From - To (Task Due Date)": {
+              "identifier": "taskduedate.aau81lMifn6q",
+              "tags": "",
+              "title": "From - To (Task Due Date)"
+            },
+            "Week #/Year (Cont.) (Task Due Date)": {
+              "identifier": "taskduedate.aay81lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (Cont.) (Task Due Date)"
+            },
+            "Wk/Qtr/Year (Cont.) (Task Due Date)": {
+              "identifier": "taskduedate.aaC81lMifn6q",
+              "tags": "",
+              "title": "Wk/Qtr/Year (Cont.) (Task Due Date)"
+            },
+            "Wk/Qtr/Year (Task Due Date)": {
+              "identifier": "taskduedate.aas81lMifn6q",
+              "tags": "",
+              "title": "Wk/Qtr/Year (Task Due Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat) (Task Due Date)": {
+          "identifier": "taskduedate.week.in.year",
+          "tags": "date week year",
+          "title": "Week (Sun-Sat) (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.aaI81lMifn6q",
+            "tags": "",
+            "title": "Number US (Task Due Date)"
+          },
+          "displayForms": {
+            "Number US (Task Due Date)": {
+              "identifier": "taskduedate.aaI81lMifn6q",
+              "tags": "",
+              "title": "Number US (Task Due Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat) of Qtr (Task Due Date)": {
+          "identifier": "taskduedate.week.in.quarter",
+          "tags": "date quarter week",
+          "title": "Week (Sun-Sat) of Qtr (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.aaO81lMifn6q",
+            "tags": "",
+            "title": "Number US (Task Due Date)"
+          },
+          "displayForms": {
+            "Number US (Task Due Date)": {
+              "identifier": "taskduedate.aaO81lMifn6q",
+              "tags": "",
+              "title": "Number US (Task Due Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun)/Year (Task Due Date)": {
+          "identifier": "taskduedate.euweek",
+          "tags": "date eu week",
+          "title": "Week (Mon-Sun)/Year (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.aa281lMifn6q",
+            "tags": "",
+            "title": "Week #/Year (W1/2010) (Task Due Date)"
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Task Due Date)": {
+              "identifier": "taskduedate.aa281lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (W1/2010) (Task Due Date)"
+            },
+            "Week Starting (Task Due Date)": {
+              "identifier": "taskduedate.aaY81lMifn6q",
+              "tags": "",
+              "title": "Week Starting (Task Due Date)"
+            },
+            "From - To (Task Due Date)": {
+              "identifier": "taskduedate.aaW81lMifn6q",
+              "tags": "",
+              "title": "From - To (Task Due Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun) (Task Due Date)": {
+          "identifier": "taskduedate.euweek.in.year",
+          "tags": "date eu week year",
+          "title": "Week (Mon-Sun) (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.aba81lMifn6q",
+            "tags": "",
+            "title": "Number EU (Task Due Date)"
+          },
+          "displayForms": {
+            "Number EU (Task Due Date)": {
+              "identifier": "taskduedate.aba81lMifn6q",
+              "tags": "",
+              "title": "Number EU (Task Due Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun) of Qtr (Task Due Date)": {
+          "identifier": "taskduedate.euweek.in.quarter",
+          "tags": "date eu quarter week",
+          "title": "Week (Mon-Sun) of Qtr (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.abg81lMifn6q",
+            "tags": "",
+            "title": "Number EU (Task Due Date)"
+          },
+          "displayForms": {
+            "Number EU (Task Due Date)": {
+              "identifier": "taskduedate.abg81lMifn6q",
+              "tags": "",
+              "title": "Number EU (Task Due Date)"
+            }
+          }
+        },
+        "Month (Task Due Date)": {
+          "identifier": "taskduedate.month.in.year",
+          "tags": "date month year",
+          "title": "Month (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.abm81lMifn6q",
+            "tags": "",
+            "title": "Short (Jan) (Task Due Date)"
+          },
+          "displayForms": {
+            "Short (Jan) (Task Due Date)": {
+              "identifier": "taskduedate.abm81lMifn6q",
+              "tags": "",
+              "title": "Short (Jan) (Task Due Date)"
+            },
+            "Long (January) (Task Due Date)": {
+              "identifier": "taskduedate.abs81lMifn6q",
+              "tags": "",
+              "title": "Long (January) (Task Due Date)"
+            },
+            "Number (M1) (Task Due Date)": {
+              "identifier": "taskduedate.abq81lMifn6q",
+              "tags": "",
+              "title": "Number (M1) (Task Due Date)"
+            },
+            "M/Q (M1/Q1) (Task Due Date)": {
+              "identifier": "taskduedate.abo81lMifn6q",
+              "tags": "",
+              "title": "M/Q (M1/Q1) (Task Due Date)"
+            }
+          }
+        },
+        "Month of Quarter (Task Due Date)": {
+          "identifier": "taskduedate.month.in.quarter",
+          "tags": "date month quarter",
+          "title": "Month of Quarter (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.aby81lMifn6q",
+            "tags": "",
+            "title": "Number (Task Due Date)"
+          },
+          "displayForms": {
+            "Number (Task Due Date)": {
+              "identifier": "taskduedate.aby81lMifn6q",
+              "tags": "",
+              "title": "Number (Task Due Date)"
+            }
+          }
+        },
+        "Day of Year (Task Due Date)": {
+          "identifier": "taskduedate.day.in.year",
+          "tags": "date day year",
+          "title": "Day of Year (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.abE81lMifn6q",
+            "tags": "",
+            "title": "default (Task Due Date)"
+          },
+          "displayForms": {
+            "default (Task Due Date)": {
+              "identifier": "taskduedate.abE81lMifn6q",
+              "tags": "",
+              "title": "default (Task Due Date)"
+            }
+          }
+        },
+        "Day of Week (Sun-Sat) (Task Due Date)": {
+          "identifier": "taskduedate.day.in.week",
+          "tags": "date day week",
+          "title": "Day of Week (Sun-Sat) (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.abK81lMifn6q",
+            "tags": "",
+            "title": "Short (Sun) (Task Due Date)"
+          },
+          "displayForms": {
+            "Short (Sun) (Task Due Date)": {
+              "identifier": "taskduedate.abK81lMifn6q",
+              "tags": "",
+              "title": "Short (Sun) (Task Due Date)"
+            },
+            "Long (Sunday) (Task Due Date)": {
+              "identifier": "taskduedate.abO81lMifn6q",
+              "tags": "",
+              "title": "Long (Sunday) (Task Due Date)"
+            },
+            "Number (1=Sunday) (Task Due Date)": {
+              "identifier": "taskduedate.abM81lMifn6q",
+              "tags": "",
+              "title": "Number (1=Sunday) (Task Due Date)"
+            }
+          }
+        },
+        "Day of Week (Mon-Sun) (Task Due Date)": {
+          "identifier": "taskduedate.day.in.euweek",
+          "tags": "date day eu week",
+          "title": "Day of Week (Mon-Sun) (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.abU81lMifn6q",
+            "tags": "",
+            "title": "Short (Mon) (Task Due Date)"
+          },
+          "displayForms": {
+            "Short (Mon) (Task Due Date)": {
+              "identifier": "taskduedate.abU81lMifn6q",
+              "tags": "",
+              "title": "Short (Mon) (Task Due Date)"
+            },
+            "Long (Monday) (Task Due Date)": {
+              "identifier": "taskduedate.abY81lMifn6q",
+              "tags": "",
+              "title": "Long (Monday) (Task Due Date)"
+            },
+            "Number (1=Monday) (Task Due Date)": {
+              "identifier": "taskduedate.abW81lMifn6q",
+              "tags": "",
+              "title": "Number (1=Monday) (Task Due Date)"
+            }
+          }
+        },
+        "Day of Quarter (Task Due Date)": {
+          "identifier": "taskduedate.day.in.quarter",
+          "tags": "date day quarter",
+          "title": "Day of Quarter (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.ab481lMifn6q",
+            "tags": "",
+            "title": "default (Task Due Date)"
+          },
+          "displayForms": {
+            "default (Task Due Date)": {
+              "identifier": "taskduedate.ab481lMifn6q",
+              "tags": "",
+              "title": "default (Task Due Date)"
+            }
+          }
+        },
+        "Day of Month (Task Due Date)": {
+          "identifier": "taskduedate.day.in.month",
+          "tags": "date day month",
+          "title": "Day of Month (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.aca81lMifn6q",
+            "tags": "",
+            "title": "default (Task Due Date)"
+          },
+          "displayForms": {
+            "default (Task Due Date)": {
+              "identifier": "taskduedate.aca81lMifn6q",
+              "tags": "",
+              "title": "default (Task Due Date)"
+            }
+          }
+        },
+        "Quarter/Year (Task Due Date)": {
+          "identifier": "taskduedate.quarter",
+          "tags": "date quarter",
+          "title": "Quarter/Year (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.aci81lMifn6q",
+            "tags": "",
+            "title": "US Short (Task Due Date)"
+          },
+          "displayForms": {
+            "US Short (Task Due Date)": {
+              "identifier": "taskduedate.aci81lMifn6q",
+              "tags": "",
+              "title": "US Short (Task Due Date)"
+            }
+          }
+        },
+        "Month/Year (Task Due Date)": {
+          "identifier": "taskduedate.month",
+          "tags": "date month",
+          "title": "Month/Year (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.act81lMifn6q",
+            "tags": "",
+            "title": "Short (Jan 2010) (Task Due Date)"
+          },
+          "displayForms": {
+            "Short (Jan 2010) (Task Due Date)": {
+              "identifier": "taskduedate.act81lMifn6q",
+              "tags": "",
+              "title": "Short (Jan 2010) (Task Due Date)"
+            },
+            "Long (January 2010) (Task Due Date)": {
+              "identifier": "taskduedate.acx81lMifn6q",
+              "tags": "",
+              "title": "Long (January 2010) (Task Due Date)"
+            },
+            "Number (1/2010) (Task Due Date)": {
+              "identifier": "taskduedate.acv81lMifn6q",
+              "tags": "",
+              "title": "Number (1/2010) (Task Due Date)"
+            }
+          }
+        },
+        "Date (Task Due Date)": {
+          "identifier": "taskduedate.date",
+          "tags": "date",
+          "title": "Date (Task Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskduedate.date.mmddyyyy",
+            "tags": "",
+            "title": "mm/dd/yyyy (Task Due Date)"
+          },
+          "displayForms": {
+            "mm/dd/yyyy (Task Due Date)": {
+              "identifier": "taskduedate.date.mmddyyyy",
+              "tags": "",
+              "title": "mm/dd/yyyy (Task Due Date)"
+            },
+            "yyyy-mm-dd (Task Due Date)": {
+              "identifier": "taskduedate.date.yyyymmdd",
+              "tags": "",
+              "title": "yyyy-mm-dd (Task Due Date)"
+            },
+            "m/d/yy (no leading zeroes) (Task Due Date)": {
+              "identifier": "taskduedate.date.mdyy",
+              "tags": "",
+              "title": "m/d/yy (no leading zeroes) (Task Due Date)"
+            },
+            "Long (Mon, Jan 1, 2010) (Task Due Date)": {
+              "identifier": "taskduedate.date.long",
+              "tags": "",
+              "title": "Long (Mon, Jan 1, 2010) (Task Due Date)"
+            },
+            "dd/mm/yyyy (Task Due Date)": {
+              "identifier": "taskduedate.date.ddmmyyyy",
+              "tags": "",
+              "title": "dd/mm/yyyy (Task Due Date)"
+            },
+            "dd-mm-yyyy (Task Due Date)": {
+              "identifier": "taskduedate.date.eddmmyyyy",
+              "tags": "",
+              "title": "dd-mm-yyyy (Task Due Date)"
+            }
+          }
+        }
+      },
+      "title": "Date (Task Due Date)"
+    },
+    "Date (Task Completion Date)": {
+      "identifier": "taskcompletiondate.dataset.dt",
+      "tags": "",
+      "attributes": {
+        "Year (Task Completion Date)": {
+          "identifier": "taskcompletiondate.year",
+          "tags": "date year",
+          "title": "Year (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.aag81lMifn6q",
+            "tags": "",
+            "title": "Year (Task Completion Date)"
+          },
+          "displayForms": {
+            "Year (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aag81lMifn6q",
+              "tags": "",
+              "title": "Year (Task Completion Date)"
+            }
+          }
+        },
+        "Quarter (Task Completion Date)": {
+          "identifier": "taskcompletiondate.quarter.in.year",
+          "tags": "date quarter year",
+          "title": "Quarter (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.aam81lMifn6q",
+            "tags": "",
+            "title": "default (Task Completion Date)"
+          },
+          "displayForms": {
+            "default (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aam81lMifn6q",
+              "tags": "",
+              "title": "default (Task Completion Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat)/Year (Task Completion Date)": {
+          "identifier": "taskcompletiondate.week",
+          "tags": "date week",
+          "title": "Week (Sun-Sat)/Year (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.aaA81lMifn6q",
+            "tags": "",
+            "title": "Week #/Year (W1/2010) (Task Completion Date)"
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aaA81lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (W1/2010) (Task Completion Date)"
+            },
+            "Week Starting (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aaw81lMifn6q",
+              "tags": "",
+              "title": "Week Starting (Task Completion Date)"
+            },
+            "From - To (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aau81lMifn6q",
+              "tags": "",
+              "title": "From - To (Task Completion Date)"
+            },
+            "Week #/Year (Cont.) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aay81lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (Cont.) (Task Completion Date)"
+            },
+            "Wk/Qtr/Year (Cont.) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aaC81lMifn6q",
+              "tags": "",
+              "title": "Wk/Qtr/Year (Cont.) (Task Completion Date)"
+            },
+            "Wk/Qtr/Year (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aas81lMifn6q",
+              "tags": "",
+              "title": "Wk/Qtr/Year (Task Completion Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat) (Task Completion Date)": {
+          "identifier": "taskcompletiondate.week.in.year",
+          "tags": "date week year",
+          "title": "Week (Sun-Sat) (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.aaI81lMifn6q",
+            "tags": "",
+            "title": "Number US (Task Completion Date)"
+          },
+          "displayForms": {
+            "Number US (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aaI81lMifn6q",
+              "tags": "",
+              "title": "Number US (Task Completion Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat) of Qtr (Task Completion Date)": {
+          "identifier": "taskcompletiondate.week.in.quarter",
+          "tags": "date quarter week",
+          "title": "Week (Sun-Sat) of Qtr (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.aaO81lMifn6q",
+            "tags": "",
+            "title": "Number US (Task Completion Date)"
+          },
+          "displayForms": {
+            "Number US (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aaO81lMifn6q",
+              "tags": "",
+              "title": "Number US (Task Completion Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun)/Year (Task Completion Date)": {
+          "identifier": "taskcompletiondate.euweek",
+          "tags": "date eu week",
+          "title": "Week (Mon-Sun)/Year (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.aa281lMifn6q",
+            "tags": "",
+            "title": "Week #/Year (W1/2010) (Task Completion Date)"
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aa281lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (W1/2010) (Task Completion Date)"
+            },
+            "Week Starting (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aaY81lMifn6q",
+              "tags": "",
+              "title": "Week Starting (Task Completion Date)"
+            },
+            "From - To (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aaW81lMifn6q",
+              "tags": "",
+              "title": "From - To (Task Completion Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun) (Task Completion Date)": {
+          "identifier": "taskcompletiondate.euweek.in.year",
+          "tags": "date eu week year",
+          "title": "Week (Mon-Sun) (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.aba81lMifn6q",
+            "tags": "",
+            "title": "Number EU (Task Completion Date)"
+          },
+          "displayForms": {
+            "Number EU (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aba81lMifn6q",
+              "tags": "",
+              "title": "Number EU (Task Completion Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun) of Qtr (Task Completion Date)": {
+          "identifier": "taskcompletiondate.euweek.in.quarter",
+          "tags": "date eu quarter week",
+          "title": "Week (Mon-Sun) of Qtr (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.abg81lMifn6q",
+            "tags": "",
+            "title": "Number EU (Task Completion Date)"
+          },
+          "displayForms": {
+            "Number EU (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abg81lMifn6q",
+              "tags": "",
+              "title": "Number EU (Task Completion Date)"
+            }
+          }
+        },
+        "Month (Task Completion Date)": {
+          "identifier": "taskcompletiondate.month.in.year",
+          "tags": "date month year",
+          "title": "Month (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.abm81lMifn6q",
+            "tags": "",
+            "title": "Short (Jan) (Task Completion Date)"
+          },
+          "displayForms": {
+            "Short (Jan) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abm81lMifn6q",
+              "tags": "",
+              "title": "Short (Jan) (Task Completion Date)"
+            },
+            "Long (January) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abs81lMifn6q",
+              "tags": "",
+              "title": "Long (January) (Task Completion Date)"
+            },
+            "Number (M1) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abq81lMifn6q",
+              "tags": "",
+              "title": "Number (M1) (Task Completion Date)"
+            },
+            "M/Q (M1/Q1) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abo81lMifn6q",
+              "tags": "",
+              "title": "M/Q (M1/Q1) (Task Completion Date)"
+            }
+          }
+        },
+        "Month of Quarter (Task Completion Date)": {
+          "identifier": "taskcompletiondate.month.in.quarter",
+          "tags": "date month quarter",
+          "title": "Month of Quarter (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.aby81lMifn6q",
+            "tags": "",
+            "title": "Number (Task Completion Date)"
+          },
+          "displayForms": {
+            "Number (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aby81lMifn6q",
+              "tags": "",
+              "title": "Number (Task Completion Date)"
+            }
+          }
+        },
+        "Day of Year (Task Completion Date)": {
+          "identifier": "taskcompletiondate.day.in.year",
+          "tags": "date day year",
+          "title": "Day of Year (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.abE81lMifn6q",
+            "tags": "",
+            "title": "default (Task Completion Date)"
+          },
+          "displayForms": {
+            "default (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abE81lMifn6q",
+              "tags": "",
+              "title": "default (Task Completion Date)"
+            }
+          }
+        },
+        "Day of Week (Sun-Sat) (Task Completion Date)": {
+          "identifier": "taskcompletiondate.day.in.week",
+          "tags": "date day week",
+          "title": "Day of Week (Sun-Sat) (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.abK81lMifn6q",
+            "tags": "",
+            "title": "Short (Sun) (Task Completion Date)"
+          },
+          "displayForms": {
+            "Short (Sun) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abK81lMifn6q",
+              "tags": "",
+              "title": "Short (Sun) (Task Completion Date)"
+            },
+            "Long (Sunday) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abO81lMifn6q",
+              "tags": "",
+              "title": "Long (Sunday) (Task Completion Date)"
+            },
+            "Number (1=Sunday) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abM81lMifn6q",
+              "tags": "",
+              "title": "Number (1=Sunday) (Task Completion Date)"
+            }
+          }
+        },
+        "Day of Week (Mon-Sun) (Task Completion Date)": {
+          "identifier": "taskcompletiondate.day.in.euweek",
+          "tags": "date day eu week",
+          "title": "Day of Week (Mon-Sun) (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.abU81lMifn6q",
+            "tags": "",
+            "title": "Short (Mon) (Task Completion Date)"
+          },
+          "displayForms": {
+            "Short (Mon) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abU81lMifn6q",
+              "tags": "",
+              "title": "Short (Mon) (Task Completion Date)"
+            },
+            "Long (Monday) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abY81lMifn6q",
+              "tags": "",
+              "title": "Long (Monday) (Task Completion Date)"
+            },
+            "Number (1=Monday) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.abW81lMifn6q",
+              "tags": "",
+              "title": "Number (1=Monday) (Task Completion Date)"
+            }
+          }
+        },
+        "Day of Quarter (Task Completion Date)": {
+          "identifier": "taskcompletiondate.day.in.quarter",
+          "tags": "date day quarter",
+          "title": "Day of Quarter (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.ab481lMifn6q",
+            "tags": "",
+            "title": "default (Task Completion Date)"
+          },
+          "displayForms": {
+            "default (Task Completion Date)": {
+              "identifier": "taskcompletiondate.ab481lMifn6q",
+              "tags": "",
+              "title": "default (Task Completion Date)"
+            }
+          }
+        },
+        "Day of Month (Task Completion Date)": {
+          "identifier": "taskcompletiondate.day.in.month",
+          "tags": "date day month",
+          "title": "Day of Month (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.aca81lMifn6q",
+            "tags": "",
+            "title": "default (Task Completion Date)"
+          },
+          "displayForms": {
+            "default (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aca81lMifn6q",
+              "tags": "",
+              "title": "default (Task Completion Date)"
+            }
+          }
+        },
+        "Quarter/Year (Task Completion Date)": {
+          "identifier": "taskcompletiondate.quarter",
+          "tags": "date quarter",
+          "title": "Quarter/Year (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.aci81lMifn6q",
+            "tags": "",
+            "title": "US Short (Task Completion Date)"
+          },
+          "displayForms": {
+            "US Short (Task Completion Date)": {
+              "identifier": "taskcompletiondate.aci81lMifn6q",
+              "tags": "",
+              "title": "US Short (Task Completion Date)"
+            }
+          }
+        },
+        "Month/Year (Task Completion Date)": {
+          "identifier": "taskcompletiondate.month",
+          "tags": "date month",
+          "title": "Month/Year (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.act81lMifn6q",
+            "tags": "",
+            "title": "Short (Jan 2010) (Task Completion Date)"
+          },
+          "displayForms": {
+            "Short (Jan 2010) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.act81lMifn6q",
+              "tags": "",
+              "title": "Short (Jan 2010) (Task Completion Date)"
+            },
+            "Long (January 2010) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.acx81lMifn6q",
+              "tags": "",
+              "title": "Long (January 2010) (Task Completion Date)"
+            },
+            "Number (1/2010) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.acv81lMifn6q",
+              "tags": "",
+              "title": "Number (1/2010) (Task Completion Date)"
+            }
+          }
+        },
+        "Date (Task Completion Date)": {
+          "identifier": "taskcompletiondate.date",
+          "tags": "date",
+          "title": "Date (Task Completion Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskcompletiondate.date.mmddyyyy",
+            "tags": "",
+            "title": "mm/dd/yyyy (Task Completion Date)"
+          },
+          "displayForms": {
+            "mm/dd/yyyy (Task Completion Date)": {
+              "identifier": "taskcompletiondate.date.mmddyyyy",
+              "tags": "",
+              "title": "mm/dd/yyyy (Task Completion Date)"
+            },
+            "yyyy-mm-dd (Task Completion Date)": {
+              "identifier": "taskcompletiondate.date.yyyymmdd",
+              "tags": "",
+              "title": "yyyy-mm-dd (Task Completion Date)"
+            },
+            "m/d/yy (no leading zeroes) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.date.mdyy",
+              "tags": "",
+              "title": "m/d/yy (no leading zeroes) (Task Completion Date)"
+            },
+            "Long (Mon, Jan 1, 2010) (Task Completion Date)": {
+              "identifier": "taskcompletiondate.date.long",
+              "tags": "",
+              "title": "Long (Mon, Jan 1, 2010) (Task Completion Date)"
+            },
+            "dd/mm/yyyy (Task Completion Date)": {
+              "identifier": "taskcompletiondate.date.ddmmyyyy",
+              "tags": "",
+              "title": "dd/mm/yyyy (Task Completion Date)"
+            },
+            "dd-mm-yyyy (Task Completion Date)": {
+              "identifier": "taskcompletiondate.date.eddmmyyyy",
+              "tags": "",
+              "title": "dd-mm-yyyy (Task Completion Date)"
+            }
+          }
+        }
+      },
+      "title": "Date (Task Completion Date)"
+    },
+    "Date (Task Verification Due Date)": {
+      "identifier": "taskverificationnduedate.dataset.dt",
+      "tags": "",
+      "attributes": {
+        "Year (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.year",
+          "tags": "date year",
+          "title": "Year (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.aag81lMifn6q",
+            "tags": "",
+            "title": "Year (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Year (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aag81lMifn6q",
+              "tags": "",
+              "title": "Year (Task Verification Due Date)"
+            }
+          }
+        },
+        "Quarter (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.quarter.in.year",
+          "tags": "date quarter year",
+          "title": "Quarter (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.aam81lMifn6q",
+            "tags": "",
+            "title": "default (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "default (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aam81lMifn6q",
+              "tags": "",
+              "title": "default (Task Verification Due Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat)/Year (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.week",
+          "tags": "date week",
+          "title": "Week (Sun-Sat)/Year (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.aaA81lMifn6q",
+            "tags": "",
+            "title": "Week #/Year (W1/2010) (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aaA81lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (W1/2010) (Task Verification Due Date)"
+            },
+            "Week Starting (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aaw81lMifn6q",
+              "tags": "",
+              "title": "Week Starting (Task Verification Due Date)"
+            },
+            "From - To (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aau81lMifn6q",
+              "tags": "",
+              "title": "From - To (Task Verification Due Date)"
+            },
+            "Week #/Year (Cont.) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aay81lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (Cont.) (Task Verification Due Date)"
+            },
+            "Wk/Qtr/Year (Cont.) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aaC81lMifn6q",
+              "tags": "",
+              "title": "Wk/Qtr/Year (Cont.) (Task Verification Due Date)"
+            },
+            "Wk/Qtr/Year (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aas81lMifn6q",
+              "tags": "",
+              "title": "Wk/Qtr/Year (Task Verification Due Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat) (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.week.in.year",
+          "tags": "date week year",
+          "title": "Week (Sun-Sat) (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.aaI81lMifn6q",
+            "tags": "",
+            "title": "Number US (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Number US (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aaI81lMifn6q",
+              "tags": "",
+              "title": "Number US (Task Verification Due Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat) of Qtr (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.week.in.quarter",
+          "tags": "date quarter week",
+          "title": "Week (Sun-Sat) of Qtr (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.aaO81lMifn6q",
+            "tags": "",
+            "title": "Number US (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Number US (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aaO81lMifn6q",
+              "tags": "",
+              "title": "Number US (Task Verification Due Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun)/Year (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.euweek",
+          "tags": "date eu week",
+          "title": "Week (Mon-Sun)/Year (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.aa281lMifn6q",
+            "tags": "",
+            "title": "Week #/Year (W1/2010) (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aa281lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (W1/2010) (Task Verification Due Date)"
+            },
+            "Week Starting (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aaY81lMifn6q",
+              "tags": "",
+              "title": "Week Starting (Task Verification Due Date)"
+            },
+            "From - To (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aaW81lMifn6q",
+              "tags": "",
+              "title": "From - To (Task Verification Due Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun) (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.euweek.in.year",
+          "tags": "date eu week year",
+          "title": "Week (Mon-Sun) (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.aba81lMifn6q",
+            "tags": "",
+            "title": "Number EU (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Number EU (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aba81lMifn6q",
+              "tags": "",
+              "title": "Number EU (Task Verification Due Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun) of Qtr (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.euweek.in.quarter",
+          "tags": "date eu quarter week",
+          "title": "Week (Mon-Sun) of Qtr (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.abg81lMifn6q",
+            "tags": "",
+            "title": "Number EU (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Number EU (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abg81lMifn6q",
+              "tags": "",
+              "title": "Number EU (Task Verification Due Date)"
+            }
+          }
+        },
+        "Month (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.month.in.year",
+          "tags": "date month year",
+          "title": "Month (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.abm81lMifn6q",
+            "tags": "",
+            "title": "Short (Jan) (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Short (Jan) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abm81lMifn6q",
+              "tags": "",
+              "title": "Short (Jan) (Task Verification Due Date)"
+            },
+            "Long (January) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abs81lMifn6q",
+              "tags": "",
+              "title": "Long (January) (Task Verification Due Date)"
+            },
+            "Number (M1) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abq81lMifn6q",
+              "tags": "",
+              "title": "Number (M1) (Task Verification Due Date)"
+            },
+            "M/Q (M1/Q1) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abo81lMifn6q",
+              "tags": "",
+              "title": "M/Q (M1/Q1) (Task Verification Due Date)"
+            }
+          }
+        },
+        "Month of Quarter (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.month.in.quarter",
+          "tags": "date month quarter",
+          "title": "Month of Quarter (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.aby81lMifn6q",
+            "tags": "",
+            "title": "Number (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Number (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aby81lMifn6q",
+              "tags": "",
+              "title": "Number (Task Verification Due Date)"
+            }
+          }
+        },
+        "Day of Year (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.day.in.year",
+          "tags": "date day year",
+          "title": "Day of Year (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.abE81lMifn6q",
+            "tags": "",
+            "title": "default (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "default (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abE81lMifn6q",
+              "tags": "",
+              "title": "default (Task Verification Due Date)"
+            }
+          }
+        },
+        "Day of Week (Sun-Sat) (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.day.in.week",
+          "tags": "date day week",
+          "title": "Day of Week (Sun-Sat) (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.abK81lMifn6q",
+            "tags": "",
+            "title": "Short (Sun) (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Short (Sun) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abK81lMifn6q",
+              "tags": "",
+              "title": "Short (Sun) (Task Verification Due Date)"
+            },
+            "Long (Sunday) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abO81lMifn6q",
+              "tags": "",
+              "title": "Long (Sunday) (Task Verification Due Date)"
+            },
+            "Number (1=Sunday) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abM81lMifn6q",
+              "tags": "",
+              "title": "Number (1=Sunday) (Task Verification Due Date)"
+            }
+          }
+        },
+        "Day of Week (Mon-Sun) (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.day.in.euweek",
+          "tags": "date day eu week",
+          "title": "Day of Week (Mon-Sun) (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.abU81lMifn6q",
+            "tags": "",
+            "title": "Short (Mon) (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Short (Mon) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abU81lMifn6q",
+              "tags": "",
+              "title": "Short (Mon) (Task Verification Due Date)"
+            },
+            "Long (Monday) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abY81lMifn6q",
+              "tags": "",
+              "title": "Long (Monday) (Task Verification Due Date)"
+            },
+            "Number (1=Monday) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.abW81lMifn6q",
+              "tags": "",
+              "title": "Number (1=Monday) (Task Verification Due Date)"
+            }
+          }
+        },
+        "Day of Quarter (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.day.in.quarter",
+          "tags": "date day quarter",
+          "title": "Day of Quarter (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.ab481lMifn6q",
+            "tags": "",
+            "title": "default (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "default (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.ab481lMifn6q",
+              "tags": "",
+              "title": "default (Task Verification Due Date)"
+            }
+          }
+        },
+        "Day of Month (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.day.in.month",
+          "tags": "date day month",
+          "title": "Day of Month (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.aca81lMifn6q",
+            "tags": "",
+            "title": "default (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "default (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aca81lMifn6q",
+              "tags": "",
+              "title": "default (Task Verification Due Date)"
+            }
+          }
+        },
+        "Quarter/Year (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.quarter",
+          "tags": "date quarter",
+          "title": "Quarter/Year (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.aci81lMifn6q",
+            "tags": "",
+            "title": "US Short (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "US Short (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.aci81lMifn6q",
+              "tags": "",
+              "title": "US Short (Task Verification Due Date)"
+            }
+          }
+        },
+        "Month/Year (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.month",
+          "tags": "date month",
+          "title": "Month/Year (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.act81lMifn6q",
+            "tags": "",
+            "title": "Short (Jan 2010) (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "Short (Jan 2010) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.act81lMifn6q",
+              "tags": "",
+              "title": "Short (Jan 2010) (Task Verification Due Date)"
+            },
+            "Long (January 2010) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.acx81lMifn6q",
+              "tags": "",
+              "title": "Long (January 2010) (Task Verification Due Date)"
+            },
+            "Number (1/2010) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.acv81lMifn6q",
+              "tags": "",
+              "title": "Number (1/2010) (Task Verification Due Date)"
+            }
+          }
+        },
+        "Date (Task Verification Due Date)": {
+          "identifier": "taskverificationnduedate.date",
+          "tags": "date",
+          "title": "Date (Task Verification Due Date)",
+          "defaultDisplayForm": {
+            "identifier": "taskverificationnduedate.date.mmddyyyy",
+            "tags": "",
+            "title": "mm/dd/yyyy (Task Verification Due Date)"
+          },
+          "displayForms": {
+            "mm/dd/yyyy (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.date.mmddyyyy",
+              "tags": "",
+              "title": "mm/dd/yyyy (Task Verification Due Date)"
+            },
+            "yyyy-mm-dd (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.date.yyyymmdd",
+              "tags": "",
+              "title": "yyyy-mm-dd (Task Verification Due Date)"
+            },
+            "m/d/yy (no leading zeroes) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.date.mdyy",
+              "tags": "",
+              "title": "m/d/yy (no leading zeroes) (Task Verification Due Date)"
+            },
+            "Long (Mon, Jan 1, 2010) (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.date.long",
+              "tags": "",
+              "title": "Long (Mon, Jan 1, 2010) (Task Verification Due Date)"
+            },
+            "dd/mm/yyyy (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.date.ddmmyyyy",
+              "tags": "",
+              "title": "dd/mm/yyyy (Task Verification Due Date)"
+            },
+            "dd-mm-yyyy (Task Verification Due Date)": {
+              "identifier": "taskverificationnduedate.date.eddmmyyyy",
+              "tags": "",
+              "title": "dd-mm-yyyy (Task Verification Due Date)"
+            }
+          }
+        }
+      },
+      "title": "Date (Task Verification Due Date)"
+    },
+    "Date (Snapshot Date)": {
+      "identifier": "snapshotdate.dataset.dt",
+      "tags": "",
+      "attributes": {
+        "Year (Snapshot Date)": {
+          "identifier": "snapshotdate.year",
+          "tags": "date year",
+          "title": "Year (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.aag81lMifn6q",
+            "tags": "",
+            "title": "Year (Snapshot Date)"
+          },
+          "displayForms": {
+            "Year (Snapshot Date)": {
+              "identifier": "snapshotdate.aag81lMifn6q",
+              "tags": "",
+              "title": "Year (Snapshot Date)"
+            }
+          }
+        },
+        "Quarter (Snapshot Date)": {
+          "identifier": "snapshotdate.quarter.in.year",
+          "tags": "date quarter year",
+          "title": "Quarter (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.aam81lMifn6q",
+            "tags": "",
+            "title": "default (Snapshot Date)"
+          },
+          "displayForms": {
+            "default (Snapshot Date)": {
+              "identifier": "snapshotdate.aam81lMifn6q",
+              "tags": "",
+              "title": "default (Snapshot Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat)/Year (Snapshot Date)": {
+          "identifier": "snapshotdate.week",
+          "tags": "date week",
+          "title": "Week (Sun-Sat)/Year (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.aaA81lMifn6q",
+            "tags": "",
+            "title": "Week #/Year (W1/2010) (Snapshot Date)"
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Snapshot Date)": {
+              "identifier": "snapshotdate.aaA81lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (W1/2010) (Snapshot Date)"
+            },
+            "Week Starting (Snapshot Date)": {
+              "identifier": "snapshotdate.aaw81lMifn6q",
+              "tags": "",
+              "title": "Week Starting (Snapshot Date)"
+            },
+            "From - To (Snapshot Date)": {
+              "identifier": "snapshotdate.aau81lMifn6q",
+              "tags": "",
+              "title": "From - To (Snapshot Date)"
+            },
+            "Week #/Year (Cont.) (Snapshot Date)": {
+              "identifier": "snapshotdate.aay81lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (Cont.) (Snapshot Date)"
+            },
+            "Wk/Qtr/Year (Cont.) (Snapshot Date)": {
+              "identifier": "snapshotdate.aaC81lMifn6q",
+              "tags": "",
+              "title": "Wk/Qtr/Year (Cont.) (Snapshot Date)"
+            },
+            "Wk/Qtr/Year (Snapshot Date)": {
+              "identifier": "snapshotdate.aas81lMifn6q",
+              "tags": "",
+              "title": "Wk/Qtr/Year (Snapshot Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat) (Snapshot Date)": {
+          "identifier": "snapshotdate.week.in.year",
+          "tags": "date week year",
+          "title": "Week (Sun-Sat) (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.aaI81lMifn6q",
+            "tags": "",
+            "title": "Number US (Snapshot Date)"
+          },
+          "displayForms": {
+            "Number US (Snapshot Date)": {
+              "identifier": "snapshotdate.aaI81lMifn6q",
+              "tags": "",
+              "title": "Number US (Snapshot Date)"
+            }
+          }
+        },
+        "Week (Sun-Sat) of Qtr (Snapshot Date)": {
+          "identifier": "snapshotdate.week.in.quarter",
+          "tags": "date quarter week",
+          "title": "Week (Sun-Sat) of Qtr (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.aaO81lMifn6q",
+            "tags": "",
+            "title": "Number US (Snapshot Date)"
+          },
+          "displayForms": {
+            "Number US (Snapshot Date)": {
+              "identifier": "snapshotdate.aaO81lMifn6q",
+              "tags": "",
+              "title": "Number US (Snapshot Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun)/Year (Snapshot Date)": {
+          "identifier": "snapshotdate.euweek",
+          "tags": "date eu week",
+          "title": "Week (Mon-Sun)/Year (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.aa281lMifn6q",
+            "tags": "",
+            "title": "Week #/Year (W1/2010) (Snapshot Date)"
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Snapshot Date)": {
+              "identifier": "snapshotdate.aa281lMifn6q",
+              "tags": "",
+              "title": "Week #/Year (W1/2010) (Snapshot Date)"
+            },
+            "Week Starting (Snapshot Date)": {
+              "identifier": "snapshotdate.aaY81lMifn6q",
+              "tags": "",
+              "title": "Week Starting (Snapshot Date)"
+            },
+            "From - To (Snapshot Date)": {
+              "identifier": "snapshotdate.aaW81lMifn6q",
+              "tags": "",
+              "title": "From - To (Snapshot Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun) (Snapshot Date)": {
+          "identifier": "snapshotdate.euweek.in.year",
+          "tags": "date eu week year",
+          "title": "Week (Mon-Sun) (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.aba81lMifn6q",
+            "tags": "",
+            "title": "Number EU (Snapshot Date)"
+          },
+          "displayForms": {
+            "Number EU (Snapshot Date)": {
+              "identifier": "snapshotdate.aba81lMifn6q",
+              "tags": "",
+              "title": "Number EU (Snapshot Date)"
+            }
+          }
+        },
+        "Week (Mon-Sun) of Qtr (Snapshot Date)": {
+          "identifier": "snapshotdate.euweek.in.quarter",
+          "tags": "date eu quarter week",
+          "title": "Week (Mon-Sun) of Qtr (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.abg81lMifn6q",
+            "tags": "",
+            "title": "Number EU (Snapshot Date)"
+          },
+          "displayForms": {
+            "Number EU (Snapshot Date)": {
+              "identifier": "snapshotdate.abg81lMifn6q",
+              "tags": "",
+              "title": "Number EU (Snapshot Date)"
+            }
+          }
+        },
+        "Month (Snapshot Date)": {
+          "identifier": "snapshotdate.month.in.year",
+          "tags": "date month year",
+          "title": "Month (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.abm81lMifn6q",
+            "tags": "",
+            "title": "Short (Jan) (Snapshot Date)"
+          },
+          "displayForms": {
+            "Short (Jan) (Snapshot Date)": {
+              "identifier": "snapshotdate.abm81lMifn6q",
+              "tags": "",
+              "title": "Short (Jan) (Snapshot Date)"
+            },
+            "Long (January) (Snapshot Date)": {
+              "identifier": "snapshotdate.abs81lMifn6q",
+              "tags": "",
+              "title": "Long (January) (Snapshot Date)"
+            },
+            "Number (M1) (Snapshot Date)": {
+              "identifier": "snapshotdate.abq81lMifn6q",
+              "tags": "",
+              "title": "Number (M1) (Snapshot Date)"
+            },
+            "M/Q (M1/Q1) (Snapshot Date)": {
+              "identifier": "snapshotdate.abo81lMifn6q",
+              "tags": "",
+              "title": "M/Q (M1/Q1) (Snapshot Date)"
+            }
+          }
+        },
+        "Month of Quarter (Snapshot Date)": {
+          "identifier": "snapshotdate.month.in.quarter",
+          "tags": "date month quarter",
+          "title": "Month of Quarter (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.aby81lMifn6q",
+            "tags": "",
+            "title": "Number (Snapshot Date)"
+          },
+          "displayForms": {
+            "Number (Snapshot Date)": {
+              "identifier": "snapshotdate.aby81lMifn6q",
+              "tags": "",
+              "title": "Number (Snapshot Date)"
+            }
+          }
+        },
+        "Day of Year (Snapshot Date)": {
+          "identifier": "snapshotdate.day.in.year",
+          "tags": "date day year",
+          "title": "Day of Year (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.abE81lMifn6q",
+            "tags": "",
+            "title": "default (Snapshot Date)"
+          },
+          "displayForms": {
+            "default (Snapshot Date)": {
+              "identifier": "snapshotdate.abE81lMifn6q",
+              "tags": "",
+              "title": "default (Snapshot Date)"
+            }
+          }
+        },
+        "Day of Week (Sun-Sat) (Snapshot Date)": {
+          "identifier": "snapshotdate.day.in.week",
+          "tags": "date day week",
+          "title": "Day of Week (Sun-Sat) (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.abK81lMifn6q",
+            "tags": "",
+            "title": "Short (Sun) (Snapshot Date)"
+          },
+          "displayForms": {
+            "Short (Sun) (Snapshot Date)": {
+              "identifier": "snapshotdate.abK81lMifn6q",
+              "tags": "",
+              "title": "Short (Sun) (Snapshot Date)"
+            },
+            "Long (Sunday) (Snapshot Date)": {
+              "identifier": "snapshotdate.abO81lMifn6q",
+              "tags": "",
+              "title": "Long (Sunday) (Snapshot Date)"
+            },
+            "Number (1=Sunday) (Snapshot Date)": {
+              "identifier": "snapshotdate.abM81lMifn6q",
+              "tags": "",
+              "title": "Number (1=Sunday) (Snapshot Date)"
+            }
+          }
+        },
+        "Day of Week (Mon-Sun) (Snapshot Date)": {
+          "identifier": "snapshotdate.day.in.euweek",
+          "tags": "date day eu week",
+          "title": "Day of Week (Mon-Sun) (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.abU81lMifn6q",
+            "tags": "",
+            "title": "Short (Mon) (Snapshot Date)"
+          },
+          "displayForms": {
+            "Short (Mon) (Snapshot Date)": {
+              "identifier": "snapshotdate.abU81lMifn6q",
+              "tags": "",
+              "title": "Short (Mon) (Snapshot Date)"
+            },
+            "Long (Monday) (Snapshot Date)": {
+              "identifier": "snapshotdate.abY81lMifn6q",
+              "tags": "",
+              "title": "Long (Monday) (Snapshot Date)"
+            },
+            "Number (1=Monday) (Snapshot Date)": {
+              "identifier": "snapshotdate.abW81lMifn6q",
+              "tags": "",
+              "title": "Number (1=Monday) (Snapshot Date)"
+            }
+          }
+        },
+        "Day of Quarter (Snapshot Date)": {
+          "identifier": "snapshotdate.day.in.quarter",
+          "tags": "date day quarter",
+          "title": "Day of Quarter (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.ab481lMifn6q",
+            "tags": "",
+            "title": "default (Snapshot Date)"
+          },
+          "displayForms": {
+            "default (Snapshot Date)": {
+              "identifier": "snapshotdate.ab481lMifn6q",
+              "tags": "",
+              "title": "default (Snapshot Date)"
+            }
+          }
+        },
+        "Day of Month (Snapshot Date)": {
+          "identifier": "snapshotdate.day.in.month",
+          "tags": "date day month",
+          "title": "Day of Month (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.aca81lMifn6q",
+            "tags": "",
+            "title": "default (Snapshot Date)"
+          },
+          "displayForms": {
+            "default (Snapshot Date)": {
+              "identifier": "snapshotdate.aca81lMifn6q",
+              "tags": "",
+              "title": "default (Snapshot Date)"
+            }
+          }
+        },
+        "Quarter/Year (Snapshot Date)": {
+          "identifier": "snapshotdate.quarter",
+          "tags": "date quarter",
+          "title": "Quarter/Year (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.aci81lMifn6q",
+            "tags": "",
+            "title": "US Short (Snapshot Date)"
+          },
+          "displayForms": {
+            "US Short (Snapshot Date)": {
+              "identifier": "snapshotdate.aci81lMifn6q",
+              "tags": "",
+              "title": "US Short (Snapshot Date)"
+            }
+          }
+        },
+        "Month/Year (Snapshot Date)": {
+          "identifier": "snapshotdate.month",
+          "tags": "date month",
+          "title": "Month/Year (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.act81lMifn6q",
+            "tags": "",
+            "title": "Short (Jan 2010) (Snapshot Date)"
+          },
+          "displayForms": {
+            "Short (Jan 2010) (Snapshot Date)": {
+              "identifier": "snapshotdate.act81lMifn6q",
+              "tags": "",
+              "title": "Short (Jan 2010) (Snapshot Date)"
+            },
+            "Long (January 2010) (Snapshot Date)": {
+              "identifier": "snapshotdate.acx81lMifn6q",
+              "tags": "",
+              "title": "Long (January 2010) (Snapshot Date)"
+            },
+            "Number (1/2010) (Snapshot Date)": {
+              "identifier": "snapshotdate.acv81lMifn6q",
+              "tags": "",
+              "title": "Number (1/2010) (Snapshot Date)"
+            }
+          }
+        },
+        "Date (Snapshot Date)": {
+          "identifier": "snapshotdate.date",
+          "tags": "date",
+          "title": "Date (Snapshot Date)",
+          "defaultDisplayForm": {
+            "identifier": "snapshotdate.date.mmddyyyy",
+            "tags": "",
+            "title": "mm/dd/yyyy (Snapshot Date)"
+          },
+          "displayForms": {
+            "mm/dd/yyyy (Snapshot Date)": {
+              "identifier": "snapshotdate.date.mmddyyyy",
+              "tags": "",
+              "title": "mm/dd/yyyy (Snapshot Date)"
+            },
+            "yyyy-mm-dd (Snapshot Date)": {
+              "identifier": "snapshotdate.date.yyyymmdd",
+              "tags": "",
+              "title": "yyyy-mm-dd (Snapshot Date)"
+            },
+            "m/d/yy (no leading zeroes) (Snapshot Date)": {
+              "identifier": "snapshotdate.date.mdyy",
+              "tags": "",
+              "title": "m/d/yy (no leading zeroes) (Snapshot Date)"
+            },
+            "Long (Mon, Jan 1, 2010) (Snapshot Date)": {
+              "identifier": "snapshotdate.date.long",
+              "tags": "",
+              "title": "Long (Mon, Jan 1, 2010) (Snapshot Date)"
+            },
+            "dd/mm/yyyy (Snapshot Date)": {
+              "identifier": "snapshotdate.date.ddmmyyyy",
+              "tags": "",
+              "title": "dd/mm/yyyy (Snapshot Date)"
+            },
+            "dd-mm-yyyy (Snapshot Date)": {
+              "identifier": "snapshotdate.date.eddmmyyyy",
+              "tags": "",
+              "title": "dd-mm-yyyy (Snapshot Date)"
+            }
+          }
+        }
+      },
+      "title": "Date (Snapshot Date)"
+    }
+  }
+}
