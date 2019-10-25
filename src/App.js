@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HeaderPredicateFactory, AttributeFilter, CatalogHelper, Model, ColumnChart, LineChart, Visualization } from '@gooddata/react-components';
+import { ComboChart, HeaderPredicateFactory, AttributeFilter, CatalogHelper, Model, ColumnChart, LineChart, Visualization } from '@gooddata/react-components';
 import catalogJson from './catalog.json';
 
 import '@gooddata/react-components/styles/css/main.css';
@@ -16,12 +16,14 @@ const filterURL = `/gdc/md/${projectId}/obj/2491/elements?id=`;
 
 const C = new CatalogHelper(catalogJson);
 
-const measureHelper = Model.measure(C.measure('Count of Action Items'))
-  .format('#,##0')
-  .alias('change me');
+const measureHelper = Model.measure(C.measure('Count of Action Items'));
+const measureHelper2 = Model.measure(C.measure('Count of Action Items Closed On Time'));
 
-const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Task Due Date)','Month/Year (Task Due Date)'))
-  .alias('due date');
+//const measureHelper2 = Model.measure(C.measure('Labour Hours'));
+
+const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Day of Month (Snapshot Date)'));
+
+const dateHelper2 = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Quarter (Snapshot Date)'));
 
 const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'))
   .alias('category');
@@ -55,25 +57,42 @@ const measures = [
     }
 ];
 
+const measures2 = [
+    {
+        measure: {
+            localIdentifier: 'm1',
+            definition: {
+                measureDefinition: {
+                    item: {
+                        identifier: 'fact.locationfact.labourhours'
+                    },
+                    aggregation: 'sum'
+                }
+            },
+            format: '#,##0'
+        }
+    }
+];
+
 // attribute in dimension - LDM
 const attribute = {
     visualizationAttribute: {
         displayForm: {
-            identifier: 'taskduedate.act81lMifn6q'
+            identifier: 'snapshotdate.aag81lMifn6q'
         },
         localIdentifier: 'month'
     }
 };
 
 // date filter
-const filter = [
+const dateFilter = [
   {
     absoluteDateFilter: {
           dataSet: {
-              identifier: 'taskduedate.dataset.dt'
+              identifier: 'snapshotdate.dataset.dt'
           },
-          from: '2017-05-01',
-          to: '2017-07-31'
+          from: '2013-01-01',
+          to: '2014-12-31'
       }
   }
 ];
@@ -99,28 +118,41 @@ class App extends React.Component {
       filter: []
     };
 
-    this.onApply = this.onApply.bind(this);
+    this.onApply2 = this.onApply2.bind(this);
     this.handleDrill = this.handleDrill.bind(this);
+    this.onExportReady = this.onExportReady.bind(this);
+    this.doExport = this.doExport.bind(this);
+  }
+
+  onExportReady(exportResult) {
+    this.exportResult = exportResult;
+  }
+
+  async doExport() {
+    try {
+      const result = await this.exportResult({
+        format: 'xlsx',
+        includeFilterContext: true,
+        mergeHeaders: true,
+        title: 'CustomTitle'
+      });
+      console.log('Export successfully: ', result.uri);
+    } catch (error) {
+      console.log('Export error: ', error);
+    }
   }
 
   handleDrill(arg) {
     console.log(arg);
   }
 
-  // The AttributeFilter component is old and sends filter values
-  // as URIs so we need to construct the URI for the filter
-  // then pass the element ID
-  // Would be nice if it would just return the text value
-  // so we could use textFilter option
-  onApply(filter) {
-    console.log('AttributeFilterExample onApply', filter);
-    let filterObj = [];
+  onApply2(filter) {
+    console.log('onApply', filter);
+    const filterObj = [];
     if (filter.in) {
-      const values = filter.in.map((value) => `${filterURL}${value}`);
-      filterObj.push(Model.positiveAttributeFilter(filter.id, values));
+      filterObj.push(Model.positiveAttributeFilter(filter.id, filter.in, true));
     } else {
-      const values = filter.notIn.map((value) => `${filterURL}${value}`);
-      filterObj.push(Model.negativeAttributeFilter(filter.id, values));
+      filterObj.push(Model.negativeAttributeFilter(filter.id, filter.notIn, true));
     }
     this.setState({filter: filterObj});
   }
@@ -136,18 +168,33 @@ class App extends React.Component {
           <div>
             <AttributeFilter
               projectId={projectId}
-              identifier={C.attributeDisplayForm('Task Category')}
-              onApply={this.onApply}
+              //identifier={C.attributeDisplayForm('Task Category')}
+              filter={Model.negativeAttributeFilter(C.attributeDisplayForm('Task Category'), [], true)}
+              onApply={this.onApply2}
             />
           </div>
           <div style={{ height: 300 }}>
-            <LineChart
+            <ColumnChart
               projectId={projectId}
-              measures={measures}
-              trendBy={attribute}
-              config={{
-                colors: ['#14b2e2']
-              }}
+              measures={[measureHelper]}
+              viewBy={categoryHelper}
+              stackBy={statusHelper}
+              filters={filter}
+              drillableItems={[
+                HeaderPredicateFactory.identifierMatch(C.measure('Count of Action Items'))  
+              ]}
+              onFiredDrillEvent={this.handleDrill}
+              onExportReady={this.onExportReady}
+            />
+          </div>
+          <button className="button button-secondary" onClick={this.doExport}>Export</button>
+          <div style={{ height: 300 }}>
+            <ComboChart
+              projectId={projectId}
+              primaryMeasures={[measureHelper]}
+              secondaryMeasures={[measureHelper2]}
+              viewBy={categoryHelper}
+              filters={filter}
             />
           </div>
           <div style={{ height: 300 }}>
@@ -163,15 +210,6 @@ class App extends React.Component {
                 HeaderPredicateFactory.identifierMatch(C.measure('Count of Action Items'))  
               ]}
               onFiredDrillEvent={this.handleDrill}
-            />
-          </div>
-          <div style={{ height: 300 }}>
-            <ColumnChart
-              projectId={projectId}
-              measures={[measureHelper]}
-              viewBy={categoryHelper}
-              stackBy={statusHelper}
-              filters={filter}
             />
           </div>
           <p className="App-intro">

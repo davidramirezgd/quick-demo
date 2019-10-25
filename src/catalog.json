@@ -76,6 +76,11 @@
       "tags": "",
       "title": "On Time Closure Rate"
     },
+    "SJ_TEST_.9": {
+      "identifier": "af2N9vELebF3",
+      "tags": "remove",
+      "title": "SJ_TEST_.9"
+    },
     "Total Head Count": {
       "identifier": "fact.locationfact.totalheadcount",
       "tags": "",
@@ -144,20 +149,27 @@
       "identifier": "attr.location.locationid",
       "tags": "",
       "defaultDisplayForm": {
-        "identifier": "label.location.locationid",
+        "identifier": "label.location.locationid.locationname",
         "tags": "",
-        "title": "Location ID"
+        "title": "Location Name"
       },
       "displayForms": {
+        "Location Name": {
+          "dfIdentifier": "label.location.locationid.locationname",
+          "identifier": "label.location.locationid.locationname",
+          "tags": "",
+          "dfTags": "",
+          "title": "Location Name"
+        },
         "Location ID": {
           "dfIdentifier": "label.location.locationid",
           "identifier": "label.location.locationid",
           "tags": "",
           "dfTags": "",
-          "title": "Location ID"
+          "title": "Location"
         }
       },
-      "title": "Location ID"
+      "title": "Location"
     },
     "Period Type": {
       "identifier": "attr.locationfact.periodtype",
@@ -507,6 +519,16 @@
       "identifier": "afGqRrp0iyxb",
       "tags": "",
       "title": "Validation: Days Metrics"
+    },
+    "Validation: Location Metrics": {
+      "identifier": "ah6qQ5pGgFCx",
+      "tags": "",
+      "title": "Validation: Location Metrics"
+    },
+    "zdavidtest": {
+      "identifier": "azINz8HJfiWd",
+      "tags": "",
+      "title": "zdavidtest"
     }
   },
   "dateDataSets": {
