@@ -1,6 +1,23 @@
+import 'date-fns';
 import React from 'react';
-
-import { ComboChart, HeaderPredicateFactory, AttributeFilter, CatalogHelper, Model, ColumnChart, LineChart, Visualization } from '@gooddata/react-components';
+import {
+  ComboChart,
+  HeaderPredicateFactory,
+  AttributeFilter,
+  CatalogHelper,
+  Model,
+  ColumnChart,
+  LineChart,
+  Visualization
+} from '@gooddata/react-components';
+import {factory as SdkFactory} from '@gooddata/gooddata-js';
+import { keyBy, uniqBy, findIndex, pullAt } from 'lodash';
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker
+} from '@material-ui/pickers';
 import catalogJson from './catalog.json';
 
 import '@gooddata/react-components/styles/css/main.css';
@@ -8,7 +25,7 @@ import '@gooddata/react-components/styles/css/main.css';
 import './App.css';
 
 const projectId = 'i6q0z85ef4hj57n9tms73bwe3zpgognw';
-const filterURL = `/gdc/md/${projectId}/obj/2491/elements?id=`;
+const sdk = SdkFactory();
 
 // using the catalog / model helper
 // https://sdk.gooddata.com/gooddata-ui/docs/gdc_catalog_export.html
@@ -16,12 +33,9 @@ const filterURL = `/gdc/md/${projectId}/obj/2491/elements?id=`;
 
 const C = new CatalogHelper(catalogJson);
 
-const measureHelper = Model.measure(C.measure('Count of Action Items'));
-const measureHelper2 = Model.measure(C.measure('Count of Action Items Closed On Time'));
+const measureHelper3 = Model.measure(C.measure('Labour Hours'));
 
-//const measureHelper2 = Model.measure(C.measure('Labour Hours'));
-
-const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Day of Month (Snapshot Date)'));
+const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Month/Year (Snapshot Date)'));
 
 const dateHelper2 = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Quarter (Snapshot Date)'));
 
@@ -31,13 +45,13 @@ const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'))
 const statusHelper = Model.attribute(C.attributeDisplayForm('Task Status'))
   .alias('status');
 
-const filterHelper = Model.absoluteDateFilter(C.dateDataSet('Date (Task Due Date)'),'2017-05-01','2017-07-31');
+const filterHelper = Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),'2017-05-01','2017-07-31');
 
 // need to add true here for textFilter option
 const statusFilterHelper = Model.positiveAttributeFilter(C.attributeDisplayForm('Task Category'), ['MOC'], true);
 const statusFilterHelper2 = Model.positiveAttributeFilter(C.attributeDisplayForm('Task Category'), ['Risk'], true);
 
-console.log(C.measure('Count of Action Items'));
+// console.log(C.measure('Count of Action Items'));
 // using raw json objects
 
 // metric created on the GD platform
@@ -97,6 +111,19 @@ const dateFilter = [
   }
 ];
 
+// date filter
+const dateFilter2 = [
+  {
+    absoluteDateFilter: {
+          dataSet: {
+              uri: "/gdc/md/i6q0z85ef4hj57n9tms73bwe3zpgognw/obj/2080"
+          },
+          from: '2013-01-01',
+          to: '2014-12-31'
+      }
+  }
+];
+
 // attribute filter
 const filter2 = [
   {
@@ -110,18 +137,25 @@ const filter2 = [
   }
 ];
 
+const measureHelper = Model.measure(C.measure('Count of Action Items'));
+const measureHelper2 = Model.measure(C.measure('Count of Action Items Closed On Time'));
+
 class App extends React.Component {
     constructor(props) {
     super(props);
 
     this.state = {
-      filter: []
+      filter: [],
+      fromDate: '2014-01-01',
+      toDate: '2014-01-01',
+      metricList: [measureHelper]
     };
 
-    this.onApply2 = this.onApply2.bind(this);
+    this.onApply = this.onApply.bind(this);
     this.handleDrill = this.handleDrill.bind(this);
     this.onExportReady = this.onExportReady.bind(this);
     this.doExport = this.doExport.bind(this);
+    this.onMetricChange = this.onMetricChange.bind(this);
   }
 
   onExportReady(exportResult) {
@@ -146,31 +180,161 @@ class App extends React.Component {
     console.log(arg);
   }
 
-  onApply2(filter) {
-    console.log('onApply', filter);
-    const filterObj = [];
+  onApply(filter) {
+    const filterList = this.state.filter;
     if (filter.in) {
-      filterObj.push(Model.positiveAttributeFilter(filter.id, filter.in, true));
+      filterList.unshift(Model.positiveAttributeFilter(filter.id, filter.in, true));
+    } else if (filter.notIn) {
+      filterList.unshift(Model.negativeAttributeFilter(filter.id, filter.notIn, true));
     } else {
-      filterObj.push(Model.negativeAttributeFilter(filter.id, filter.notIn, true));
+      filterList.unshift(Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'), this.state.fromDate, this.state.toDate));
     }
-    this.setState({filter: filterObj});
+    console.log(filterList);
+    const newFilter = uniqBy(filterList, function(f) {
+      console.log(f);
+      let key = '';
+      if (f.positiveAttributeFilter) {
+        key = f.positiveAttributeFilter.displayForm.identifier;
+      } else if (f.negativeAttributeFilter) {
+        key = f.negativeAttributeFilter.displayForm.identifier;
+      } else {
+        key = 'date'
+      }
+      return key
+    });
+    console.log(newFilter);
+    this.setState({filter: newFilter});
+  }
+
+  onMetricChange(value) {
+    console.log(value);
+    const metricList = this.state.metricList;
+    const mID = C.measure(value)
+
+    /*
+    sdk.md.getObjectUri(projectId, vID).then((uri) => {
+      console.log(uri);
+      sdk.md.getObjectDetails(uri).then((obj) => {
+        console.log(obj);
+      })
+    });
+
+    sdk.user.getAccountInfo().then((accountInfo) => {
+      console.log(accountInfo);
+      const { profileUri } = accountInfo;
+      sdk.project.getProjects(profileUri.split('/')[4]).then((projects) => {
+        console.log(projects[0].links.self.split("/gdc/projects/")[1]);
+      })
+    });
+    */
+    sdk.user.logout();
+
+    // more logic needed here
+    const i = findIndex(metricList, function(m) {
+      return m.measure.definition.measureDefinition.item.identifier === mID;
+    });
+
+    let newMetricList = [];
+
+    if (i == -1) {
+      newMetricList = [Model.measure(mID), ...metricList];
+    } else {
+      newMetricList = pullAt(metricList, [i]);
+    }
+    this.setState({metricList: newMetricList});
   }
 
   render() {
-    const { filter } = this.state;
+    const { filter, fromDate, toDate, metricList } = this.state;
 
     return (
        <div className="App">
           <div>
-             <h2>Welcome to React</h2>
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <Grid container justify="space-around">
+                <KeyboardDatePicker
+                  format="yyyy-MM-dd"
+                  margin="normal"
+                  id="from-date-picker"
+                  label="From Date"
+                  value={fromDate}
+                  onChange={(x,y) => {this.setState({fromDate: y})}}
+                  KeyboardButtonProps={{
+                    'aria-label': 'change date',
+                  }}
+                />
+                <KeyboardDatePicker
+                  format="yyyy/MM/dd"
+                  margin="normal"
+                  id="to-date-picker"
+                  label="To Date"
+                  value={toDate}
+                  onChange={(x,y) => {this.setState({toDate: y})}}
+                  KeyboardButtonProps={{
+                    'aria-label': 'change date',
+                  }}
+                />
+              </Grid>
+            </MuiPickersUtilsProvider>
           </div>
+          <button className="button button-secondary" onClick={this.onApply}>Apply Date Filter</button>
           <div>
             <AttributeFilter
               projectId={projectId}
-              //identifier={C.attributeDisplayForm('Task Category')}
               filter={Model.negativeAttributeFilter(C.attributeDisplayForm('Task Category'), [], true)}
-              onApply={this.onApply2}
+              onApply={this.onApply}
+            />
+            <AttributeFilter
+              projectId={projectId}
+              filter={Model.negativeAttributeFilter(C.attributeDisplayForm('Task Status'), [], true)}
+              onApply={this.onApply}
+            />
+          </div>
+          <div className="multiswitch">
+            <input
+              type="checkbox"
+              id="metric1"
+              name="metric"
+              value="Count of Action Items"
+              onChange={(e) => this.onMetricChange(e.target.value)}
+              defaultChecked
+            />
+            <label htmlFor="metric1">Count of Action Items</label>
+            <input
+              type="checkbox"
+              id="metric2"
+              name="metric"
+              value="Count of Action Items Closed On Time"
+              onChange={(e) => this.onMetricChange(e.target.value)}
+            />
+            <label htmlFor="metric2">Count of Action Items Closed On Time</label>
+          </div>
+          <div style={{ height: 300 }}>
+            <Visualization
+              projectId={projectId}
+              measures={[measureHelper2]}
+              identifier={'axcTxClhdIXb'}
+              //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
+              config={{
+                legend: {
+                  enabled: true
+                }
+              }}
+              //filters={filter}
+            />
+          </div>
+          <div style={{ height: 300 }}>
+            <ColumnChart
+              projectId={projectId}
+              measures={metricList}
+              config={{
+                legend: {
+                  enabled: true
+                }
+              }}
+              //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
+              //viewBy={dateHelper}
+              //filters={filter}
             />
           </div>
           <div style={{ height: 300 }}>
@@ -202,7 +366,7 @@ class App extends React.Component {
               projectId={projectId}
               measures={[measureHelper]}
               trendBy={categoryHelper}
-              //filters={[statusFilterHelper]}
+              filters={filter}
               config={{
                 colors: ['#14b2e2']
               }}
@@ -212,9 +376,6 @@ class App extends React.Component {
               onFiredDrillEvent={this.handleDrill}
             />
           </div>
-          <p className="App-intro">
-             To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
        </div>
     );
   }
