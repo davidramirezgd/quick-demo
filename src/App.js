@@ -11,7 +11,7 @@ import {
   Visualization
 } from '@gooddata/react-components';
 import {factory as SdkFactory} from '@gooddata/gooddata-js';
-import { uniqBy, findIndex } from 'lodash';
+import { uniqBy, findIndex, replace } from 'lodash';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -115,7 +115,12 @@ class App extends React.Component {
     } else if (filter.notIn) {
       filterList.unshift(Model.negativeAttributeFilter(filter.id, filter.notIn, true));
     } else {
-      filterList.unshift(Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'), this.state.fromDate, this.state.toDate));
+      filterList.unshift(
+        Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),
+          replace(this.state.fromDate, RegExp('/','g'), '-'),
+          replace(this.state.toDate, RegExp('/','g'), '-')
+          )
+        );
     }
     console.log(filterList);
     const newFilter = uniqBy(filterList, function(f) {
@@ -163,7 +168,7 @@ class App extends React.Component {
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <Grid container justify="space-around">
                 <KeyboardDatePicker
-                  format="yyyy-MM-dd"
+                  format="yyyy/MM/dd"
                   margin="normal"
                   id="from-date-picker"
                   label="From Date"
