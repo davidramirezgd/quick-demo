@@ -11,7 +11,7 @@ import {
   Visualization
 } from '@gooddata/react-components';
 import {factory as SdkFactory} from '@gooddata/gooddata-js';
-import { keyBy, uniqBy, findIndex, pullAt } from 'lodash';
+import { uniqBy, findIndex } from 'lodash';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -24,8 +24,33 @@ import '@gooddata/react-components/styles/css/main.css';
 
 import './App.css';
 
-const projectId = 'i6q0z85ef4hj57n9tms73bwe3zpgognw';
+let projectId = 'i6q0z85ef4hj57n9tms73bwe3zpgognw';
 const sdk = SdkFactory();
+
+/*
+sdk.md.getObjectUri(projectId, vID).then((uri) => {
+  console.log(uri);
+  sdk.md.getObjectDetails(uri).then((obj) => {
+    console.log(obj);
+  })
+});
+
+// get project ID programatically
+sdk.user.getAccountInfo().then((accountInfo) => {
+  console.log(accountInfo);
+  const { profileUri } = accountInfo;
+  sdk.project.getProjects(profileUri.split('/')[4]).then((projects) => {
+    console.log(projects[0].links.self.split("/gdc/projects/")[1]);
+    projectId = projects[0].links.self.split("/gdc/projects/")[1];
+  })
+});
+
+// need to add true here for textFilter option
+const statusFilterHelper = Model.positiveAttributeFilter(C.attributeDisplayForm('Task Category'), ['MOC'], true);
+const statusFilterHelper2 = Model.positiveAttributeFilter(C.attributeDisplayForm('Task Category'), ['Risk'], true);
+const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Month/Year (Snapshot Date)'));
+const filterHelper = Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),'2017-05-01','2017-07-31');
+*/
 
 // using the catalog / model helper
 // https://sdk.gooddata.com/gooddata-ui/docs/gdc_catalog_export.html
@@ -33,109 +58,12 @@ const sdk = SdkFactory();
 
 const C = new CatalogHelper(catalogJson);
 
-const measureHelper3 = Model.measure(C.measure('Labour Hours'));
-
-const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Month/Year (Snapshot Date)'));
-
-const dateHelper2 = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Quarter (Snapshot Date)'));
 
 const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'))
   .alias('category');
 
 const statusHelper = Model.attribute(C.attributeDisplayForm('Task Status'))
   .alias('status');
-
-const filterHelper = Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),'2017-05-01','2017-07-31');
-
-// need to add true here for textFilter option
-const statusFilterHelper = Model.positiveAttributeFilter(C.attributeDisplayForm('Task Category'), ['MOC'], true);
-const statusFilterHelper2 = Model.positiveAttributeFilter(C.attributeDisplayForm('Task Category'), ['Risk'], true);
-
-// console.log(C.measure('Count of Action Items'));
-// using raw json objects
-
-// metric created on the GD platform
-const measures = [
-    {
-        measure: {
-            localIdentifier: 'm1',
-            definition: {
-                measureDefinition: {
-                    item: {
-                        identifier: 'ab0qYwrFcN8P'
-                    }
-                }
-            },
-            format: '#,##0'
-        }
-    }
-];
-
-const measures2 = [
-    {
-        measure: {
-            localIdentifier: 'm1',
-            definition: {
-                measureDefinition: {
-                    item: {
-                        identifier: 'fact.locationfact.labourhours'
-                    },
-                    aggregation: 'sum'
-                }
-            },
-            format: '#,##0'
-        }
-    }
-];
-
-// attribute in dimension - LDM
-const attribute = {
-    visualizationAttribute: {
-        displayForm: {
-            identifier: 'snapshotdate.aag81lMifn6q'
-        },
-        localIdentifier: 'month'
-    }
-};
-
-// date filter
-const dateFilter = [
-  {
-    absoluteDateFilter: {
-          dataSet: {
-              identifier: 'snapshotdate.dataset.dt'
-          },
-          from: '2013-01-01',
-          to: '2014-12-31'
-      }
-  }
-];
-
-// date filter
-const dateFilter2 = [
-  {
-    absoluteDateFilter: {
-          dataSet: {
-              uri: "/gdc/md/i6q0z85ef4hj57n9tms73bwe3zpgognw/obj/2080"
-          },
-          from: '2013-01-01',
-          to: '2014-12-31'
-      }
-  }
-];
-
-// attribute filter
-const filter2 = [
-  {
-    positiveAttributeFilter: {
-        displayForm: {
-            identifier: 'label.taskfact.taskstatus'
-        },
-        in: ['Open'],
-        textFilter: true
-    }
-  }
-];
 
 const measureHelper = Model.measure(C.measure('Count of Action Items'));
 const measureHelper2 = Model.measure(C.measure('Count of Action Items Closed On Time'));
@@ -211,24 +139,6 @@ class App extends React.Component {
     const metricList = this.state.metricList;
     const mID = C.measure(value)
 
-    /*
-    sdk.md.getObjectUri(projectId, vID).then((uri) => {
-      console.log(uri);
-      sdk.md.getObjectDetails(uri).then((obj) => {
-        console.log(obj);
-      })
-    });
-
-    sdk.user.getAccountInfo().then((accountInfo) => {
-      console.log(accountInfo);
-      const { profileUri } = accountInfo;
-      sdk.project.getProjects(profileUri.split('/')[4]).then((projects) => {
-        console.log(projects[0].links.self.split("/gdc/projects/")[1]);
-      })
-    });
-    */
-    sdk.user.logout();
-
     // more logic needed here
     const i = findIndex(metricList, function(m) {
       return m.measure.definition.measureDefinition.item.identifier === mID;
@@ -236,10 +146,10 @@ class App extends React.Component {
 
     let newMetricList = [];
 
-    if (i == -1) {
+    if (i === -1) {
       newMetricList = [Model.measure(mID), ...metricList];
     } else {
-      newMetricList = pullAt(metricList, [i]);
+      newMetricList = metricList.filter((item, j) => i !== j);
     }
     this.setState({metricList: newMetricList});
   }
@@ -312,7 +222,6 @@ class App extends React.Component {
           <div style={{ height: 300 }}>
             <Visualization
               projectId={projectId}
-              measures={[measureHelper2]}
               identifier={'axcTxClhdIXb'}
               //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
               config={{
@@ -320,7 +229,7 @@ class App extends React.Component {
                   enabled: true
                 }
               }}
-              //filters={filter}
+              filters={filter}
             />
           </div>
           <div style={{ height: 300 }}>
@@ -334,7 +243,7 @@ class App extends React.Component {
               }}
               //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
               //viewBy={dateHelper}
-              //filters={filter}
+              filters={filter}
             />
           </div>
           <div style={{ height: 300 }}>
