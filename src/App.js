@@ -27,7 +27,7 @@ import './App.css';
 let projectId = 'i6q0z85ef4hj57n9tms73bwe3zpgognw';
 const sdk = SdkFactory();
 
-sdk.user.logout();
+// sdk.user.logout();
 
 /*
 sdk.md.getObjectUri(projectId, vID).then((uri) => {
@@ -138,6 +138,7 @@ class App extends React.Component {
       return key
     });
     console.log(newFilter);
+    debugger;
     this.setState({filter: newFilter});
   }
 
