@@ -65,7 +65,6 @@ const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'))
 
 const statusHelper = Model.attribute(C.attributeDisplayForm('Task Status'))
   .alias('status');
-const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Month/Year (Snapshot Date)'));
 const measureHelper = Model.measure(C.measure('Count of Action Items'));
 const measureHelper2 = Model.measure(C.measure('Count of Action Items Closed On Time'));
 
@@ -109,10 +108,12 @@ class App extends React.Component {
     console.log(arg);
   }
 
-  onApply(filter) {
-    //sdk.md.getObjectUri(projectId, filter.id).then((uri) => {
-      const uri = 'z';
+  onApply(filter,att) {
+    sdk.md.getObjectUri(projectId, C.attribute('Task Status')).then((uri) => {
+      //const uri = 'z';
       console.log(uri);
+      const x = C.attribute('Task Status');
+      debugger;
 
       // construct URI link for values
       const uriPattern = `${uri}/elements?id=`
@@ -121,10 +122,10 @@ class App extends React.Component {
 
       if (filter.in) {
         const values = filter.in.map(v => `${uriPattern}${v}`);
-        filterList.unshift(Model.positiveAttributeFilter(filter.id, values));
+        filterList.unshift(Model.positiveAttributeFilter(filter.id, values, false));
       } else if (filter.notIn) {
         const values = filter.notIn.map(v => `${uriPattern}${v}`);
-        filterList.unshift(Model.negativeAttributeFilter(filter.id, values));
+        filterList.unshift(Model.negativeAttributeFilter(filter.id, values, false));
       } else {
         filterList.unshift(
           Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),
@@ -147,9 +148,8 @@ class App extends React.Component {
         return key
       });
       console.log(newFilter);
-      debugger;
       this.setState({filter: newFilter});
-    //});
+    });
   }
 
   onMetricChange(value) {
@@ -215,7 +215,7 @@ class App extends React.Component {
             <AttributeFilter
               projectId={projectId}
               identifier={C.attributeDisplayForm('Task Status')}
-              onApply={this.onApply}
+              onApply={(f,att) => this.onApply(f,'d')}
             />
           </div>
           <div className="multiswitch">
