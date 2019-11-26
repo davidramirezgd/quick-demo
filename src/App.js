@@ -79,7 +79,8 @@ class App extends React.Component {
       metricList: [measureHelper]
     };
 
-    this.onApply = this.onApply.bind(this);
+    this.onApplyAttribute = this.onApplyAttribute.bind(this);
+    this.onApplyDate = this.onApplyDate.bind(this);
     this.handleDrill = this.handleDrill.bind(this);
     this.onExportReady = this.onExportReady.bind(this);
     this.doExport = this.doExport.bind(this);
@@ -108,10 +109,9 @@ class App extends React.Component {
     console.log(arg);
   }
 
-  onApply(filter,att) {
+  onApplyAttribute(filter,att) {
     sdk.md.getObjectUri(projectId, C.attribute(att)).then((uri) => {
       //const uri = 'z';
-      console.log(att);
 
       // construct URI link for values
       const uriPattern = `${uri}/elements?id=`
@@ -120,21 +120,13 @@ class App extends React.Component {
 
       if (filter.in) {
         const values = filter.in.map(v => `${uriPattern}${v}`);
-        filterList.unshift(Model.positiveAttributeFilter(filter.id, values, false));
+        filterList.unshift(Model.positiveAttributeFilter(filter.id, values));
       } else if (filter.notIn) {
         const values = filter.notIn.map(v => `${uriPattern}${v}`);
-        filterList.unshift(Model.negativeAttributeFilter(filter.id, values, false));
-      } else {
-        filterList.unshift(
-          Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),
-            replace(this.state.fromDate, RegExp('/','g'), '-'),
-            replace(this.state.toDate, RegExp('/','g'), '-')
-            )
-          );
+        filterList.unshift(Model.negativeAttributeFilter(filter.id, values));
       }
-      console.log(filterList);
+      
       const newFilter = uniqBy(filterList, function(f) {
-        console.log(f);
         let key = '';
         if (f.positiveAttributeFilter) {
           key = f.positiveAttributeFilter.displayForm.identifier;
@@ -148,6 +140,31 @@ class App extends React.Component {
       console.log(newFilter);
       this.setState({filter: newFilter});
     });
+  }
+
+  onApplyDate(filter) {
+    const filterList = this.state.filter;
+
+    filterList.unshift(
+      Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),
+        replace(this.state.fromDate, RegExp('/','g'), '-'),
+        replace(this.state.toDate, RegExp('/','g'), '-')
+        )
+    );
+
+    const newFilter = uniqBy(filterList, function(f) {
+      let key = '';
+      if (f.positiveAttributeFilter) {
+        key = f.positiveAttributeFilter.displayForm.identifier;
+      } else if (f.negativeAttributeFilter) {
+        key = f.negativeAttributeFilter.displayForm.identifier;
+      } else {
+        key = 'date'
+      }
+      return key
+    });
+    console.log(newFilter);
+    this.setState({filter: newFilter});
   }
 
   onMetricChange(value) {
@@ -203,17 +220,17 @@ class App extends React.Component {
               </Grid>
             </MuiPickersUtilsProvider>
           </div>
-          <button className="button button-secondary" onClick={this.onApply}>Apply Date Filter</button>
+          <button className="button button-secondary" onClick={this.onApplyDate}>Apply Date Filter</button>
           <div>
             <AttributeFilter
               projectId={projectId}
               identifier={C.attributeDisplayForm('Task Category')}
-              onApply={(f,att) => this.onApply(f,'Task Category')}
+              onApply={(f,att) => this.onApplyAttribute(f,'Task Category')}
             />
             <AttributeFilter
               projectId={projectId}
               identifier={C.attributeDisplayForm('Task Status')}
-              onApply={(f,att) => this.onApply(f,'Task Status')}
+              onApply={(f,att) => this.onApplyAttribute(f,'Task Status')}
             />
           </div>
           <div className="multiswitch">
@@ -238,6 +255,20 @@ class App extends React.Component {
           <div style={{ height: 300 }}>
             <ColumnChart
               projectId={projectId}
+              measures={metricList}
+              config={{
+                legend: {
+                  enabled: true
+                }
+              }}
+              //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
+              //viewBy={dateHelper}
+              filters={filter}
+            />
+          </div>
+          <div style={{ height: 300 }}>
+            <ColumnChart
+              projectId={projectId}
               measures={[measureHelper]}
               viewBy={categoryHelper}
               stackBy={statusHelper}
@@ -256,7 +287,7 @@ class App extends React.Component {
               primaryMeasures={[measureHelper]}
               secondaryMeasures={[measureHelper2]}
               viewBy={categoryHelper}
-              //filters={filter}
+              filters={filter}
             />
           </div>
           <div style={{ height: 300 }}>
@@ -264,7 +295,7 @@ class App extends React.Component {
               projectId={projectId}
               measures={[measureHelper]}
               trendBy={categoryHelper}
-              //filters={filter}
+              filters={filter}
               config={{
                 colors: ['#14b2e2']
               }}
