@@ -50,7 +50,7 @@ sdk.user.getAccountInfo().then((accountInfo) => {
 // need to add true here for textFilter option
 const statusFilterHelper = Model.positiveAttributeFilter(C.attributeDisplayForm('Task Category'), ['MOC'], true);
 const statusFilterHelper2 = Model.positiveAttributeFilter(C.attributeDisplayForm('Task Category'), ['Risk'], true);
-const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Month/Year (Snapshot Date)'));
+const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Task Assigned Date)','Month/Year (Task Assigned Date)'));
 const filterHelper = Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),'2017-05-01','2017-07-31');
 */
 
@@ -66,7 +66,7 @@ const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'))
 
 const statusHelper = Model.attribute(C.attributeDisplayForm('Task Status'))
   .alias('status');
-
+const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Task Assigned Date)','Month/Year (Task Assigned Date)'));
 const measureHelper = Model.measure(C.measure('Count of Action Items'));
 const measureHelper2 = Model.measure(C.measure('Count of Action Items Closed On Time'));
 
@@ -118,7 +118,7 @@ class App extends React.Component {
       filterList.unshift(Model.negativeAttributeFilter(filter.id, filter.notIn, true));
     } else {
       filterList.unshift(
-        Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),
+        Model.absoluteDateFilter(C.dateDataSet('Date (Task Assigned Date)'),
           replace(this.state.fromDate, RegExp('/','g'), '-'),
           replace(this.state.toDate, RegExp('/','g'), '-')
           )
@@ -138,7 +138,6 @@ class App extends React.Component {
       return key
     });
     console.log(newFilter);
-    debugger;
     this.setState({filter: newFilter});
   }
 
@@ -282,7 +281,7 @@ class App extends React.Component {
             <LineChart
               projectId={projectId}
               measures={[measureHelper]}
-              trendBy={categoryHelper}
+              trendBy={dateHelper}
               filters={filter}
               config={{
                 colors: ['#14b2e2']
