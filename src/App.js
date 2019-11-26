@@ -109,11 +109,9 @@ class App extends React.Component {
   }
 
   onApply(filter,att) {
-    sdk.md.getObjectUri(projectId, C.attribute('Task Status')).then((uri) => {
+    sdk.md.getObjectUri(projectId, C.attribute(att)).then((uri) => {
       //const uri = 'z';
-      console.log(uri);
-      const x = C.attribute('Task Status');
-      debugger;
+      console.log(att);
 
       // construct URI link for values
       const uriPattern = `${uri}/elements?id=`
@@ -210,12 +208,12 @@ class App extends React.Component {
             <AttributeFilter
               projectId={projectId}
               identifier={C.attributeDisplayForm('Task Category')}
-              onApply={this.onApply}
+              onApply={(f,att) => this.onApply(f,'Task Category')}
             />
             <AttributeFilter
               projectId={projectId}
               identifier={C.attributeDisplayForm('Task Status')}
-              onApply={(f,att) => this.onApply(f,'d')}
+              onApply={(f,att) => this.onApply(f,'Task Status')}
             />
           </div>
           <div className="multiswitch">
