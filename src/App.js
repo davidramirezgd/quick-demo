@@ -62,7 +62,7 @@ const C = new CatalogHelper(catalogJson);
 
 const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'))
   .alias('category');
-
+const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Task Assigned Date)','Month/Year (Task Assigned Date)'));
 const statusHelper = Model.attribute(C.attributeDisplayForm('Task Status'))
   .alias('status');
 const measureHelper = Model.measure(C.measure('Count of Action Items'));
@@ -146,7 +146,7 @@ class App extends React.Component {
     const filterList = this.state.filter;
 
     filterList.unshift(
-      Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),
+      Model.absoluteDateFilter(C.dateDataSet('Date (Task Assigned Date)'),
         replace(this.state.fromDate, RegExp('/','g'), '-'),
         replace(this.state.toDate, RegExp('/','g'), '-')
         )
@@ -294,7 +294,7 @@ class App extends React.Component {
             <LineChart
               projectId={projectId}
               measures={[measureHelper]}
-              trendBy={categoryHelper}
+              trendBy={dateHelper}
               filters={filter}
               config={{
                 colors: ['#14b2e2']

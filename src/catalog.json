@@ -1,6 +1,11 @@
 {
   "projectId": "i6q0z85ef4hj57n9tms73bwe3zpgognw",
   "measures": {
+    "CntTasks_SJ": {
+      "identifier": "arX1gbvNgwfC",
+      "tags": "",
+      "title": "CntTasks_SJ"
+    },
     "Count of Action Items": {
       "identifier": "ab0qYwrFcN8P",
       "tags": "",
@@ -31,10 +36,30 @@
       "tags": "",
       "title": "Days Until Due"
     },
+    "LaborHours_SP": {
+      "identifier": "asl022j6bJoX",
+      "tags": "",
+      "title": "LaborHours_SP"
+    },
     "Labour Hours": {
       "identifier": "fact.locationfact.labourhours",
       "tags": "",
       "title": "Labour Hours"
+    },
+    "LabourHours": {
+      "identifier": "ad50yLIYhIUD",
+      "tags": "",
+      "title": "LabourHours"
+    },
+    "LabourHours_SJ": {
+      "identifier": "anm1jOdshMrr",
+      "tags": "",
+      "title": "LabourHours_SJ"
+    },
+    "LabourHoursV2": {
+      "identifier": "ac31jOdydsB8",
+      "tags": "",
+      "title": "LabourHoursV2"
     },
     "Number of Contractors": {
       "identifier": "fact.locationfact.numberofcontractors",
@@ -126,6 +151,32 @@
       },
       "title": "Capture Frequency"
     },
+    "Child Location": {
+      "identifier": "attr.childlocation.childlocation",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.childlocation.childlocation.childlocationname",
+        "tags": "",
+        "title": "Child Location Name"
+      },
+      "displayForms": {
+        "Child Location Name": {
+          "dfIdentifier": "label.childlocation.childlocation.childlocationname",
+          "identifier": "label.childlocation.childlocation.childlocationname",
+          "tags": "",
+          "dfTags": "",
+          "title": "Child Location Name"
+        },
+        "Child Location": {
+          "dfIdentifier": "label.childlocation.childlocation",
+          "identifier": "label.childlocation.childlocation",
+          "tags": "",
+          "dfTags": "",
+          "title": "Child Location"
+        }
+      },
+      "title": "Child Location"
+    },
     "Delegated Person": {
       "identifier": "attr.taskfact.delegatedperson",
       "tags": "",
@@ -167,9 +218,68 @@
           "tags": "",
           "dfTags": "",
           "title": "Location"
+        },
+        "Location Sort Label": {
+          "dfIdentifier": "label.location.locationid.sortlabel",
+          "identifier": "label.location.locationid.sortlabel",
+          "tags": "",
+          "dfTags": "",
+          "title": "Location Sort Label"
         }
       },
       "title": "Location"
+    },
+    "Location Hierarchy": {
+      "identifier": "attr.location.locationhierarchy",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.location.locationhierarchy",
+        "tags": "",
+        "title": "Location Hierarchy"
+      },
+      "displayForms": {
+        "Location Hierarchy": {
+          "dfIdentifier": "label.location.locationhierarchy",
+          "identifier": "label.location.locationhierarchy",
+          "tags": "",
+          "dfTags": "",
+          "title": "Location Hierarchy"
+        }
+      },
+      "title": "Location Hierarchy"
+    },
+    "Parent Location": {
+      "identifier": "attr.location.parentlocation",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.location.locationhierarchy.parentlocationname",
+        "tags": "",
+        "title": "Parent Location Name"
+      },
+      "displayForms": {
+        "Parent Location Name": {
+          "dfIdentifier": "label.location.locationhierarchy.parentlocationname",
+          "identifier": "label.location.locationhierarchy.parentlocationname",
+          "tags": "",
+          "dfTags": "",
+          "title": "Parent Location Name"
+        },
+        "Parent Location": {
+          "dfIdentifier": "label.location.parentlocation",
+          "identifier": "label.location.parentlocation",
+          "tags": "",
+          "dfTags": "",
+          "title": "Parent Location"
+        },
+        "Parent Location Sort Label": {
+          "dfIdentifier": "label.location.parentlocation.parentlocationsortlabel",
+          "identifier": "label.location.parentlocation.parentlocationsortlabel",
+          "tags": "",
+          "dfTags": "",
+          "title": "Parent Location Sort Label"
+        }
+      },
+      "title": "Parent Location"
     },
     "Period Type": {
       "identifier": "attr.locationfact.periodtype",
@@ -529,6 +639,131 @@
       "identifier": "azINz8HJfiWd",
       "tags": "",
       "title": "zdavidtest"
+    },
+    "Validation: Location Metrics - V2": {
+      "identifier": "ajRTBIYNcLlX",
+      "tags": "",
+      "title": "Validation: Location Metrics - V2"
+    },
+    "Validation: Action items - location": {
+      "identifier": "ahITBP5OcLgi",
+      "tags": "",
+      "title": "Validation: Action items - location"
+    },
+    "zdavid2": {
+      "identifier": "axcTxClhdIXb",
+      "tags": "",
+      "title": "zdavid2"
+    },
+    "zdavid3": {
+      "identifier": "axnTQCpIcmOj",
+      "tags": "",
+      "title": "zdavid3"
+    },
+    "Date_Filter_Test": {
+      "identifier": "ae9nzGCeeSSB",
+      "tags": "",
+      "title": "Date_Filter_Test"
+    },
+    "DayDiff Metrics": {
+      "identifier": "abxtBfCPeeYK",
+      "tags": "",
+      "title": "DayDiff Metrics"
+    },
+    "Actions by Priority": {
+      "identifier": "aaptLW3dhNlJ",
+      "tags": "",
+      "title": "Actions by Priority"
+    },
+    "Action Items CountRate Metrics": {
+      "identifier": "ad0tLy1QhNn0",
+      "tags": "",
+      "title": "Action Items CountRate Metrics"
+    },
+    "Validation: Days Metrics DEBUG": {
+      "identifier": "aqrtLWjphNuN",
+      "tags": "",
+      "title": "Validation: Days Metrics DEBUG"
+    },
+    "High Priority Actions": {
+      "identifier": "aack9AtccFQt",
+      "tags": "",
+      "title": "High Priority Actions"
+    },
+    "Actions Items over Time": {
+      "identifier": "ajvlbhXidjWi",
+      "tags": "",
+      "title": "Actions Items over Time"
+    },
+    "Low Priority Actions": {
+      "identifier": "ajGla2qbbILm",
+      "tags": "",
+      "title": "Low Priority Actions"
+    },
+    "Days to Close Action by Category": {
+      "identifier": "aipk9JFta5gK",
+      "tags": "",
+      "title": "Days to Close Action by Category"
+    },
+    "*Action Items by Time Period": {
+      "identifier": "ascYBy6ZceXv",
+      "tags": "",
+      "title": "*Action Items by Time Period"
+    },
+    "Labor Data Report": {
+      "identifier": "afOze5QWfcOw",
+      "tags": "",
+      "title": "Labor Data Report"
+    },
+    "LocationHierarchy_OnTimeClosureRate": {
+      "identifier": "anTCOcnbgjQK",
+      "tags": "",
+      "title": "LocationHierarchy_OnTimeClosureRate"
+    },
+    "LocationHierarchy_ActionItem": {
+      "identifier": "ahhEn7qceTlo",
+      "tags": "",
+      "title": "LocationHierarchy_ActionItem"
+    },
+    "LocationHierarchy_DayDiff": {
+      "identifier": "afCEEBNqbYKl",
+      "tags": "",
+      "title": "LocationHierarchy_DayDiff"
+    },
+    "Test": {
+      "identifier": "an6JCR0SdVTQ",
+      "tags": "",
+      "title": "Test"
+    },
+    "BT_Rollup Issues": {
+      "identifier": "acZKwjtJiwFP",
+      "tags": "",
+      "title": "BT_Rollup Issues"
+    },
+    "BT_Rollup SJ_EDIT": {
+      "identifier": "agKKwjtJiwFP",
+      "tags": "",
+      "title": "BT_Rollup SJ_EDIT"
+    },
+    "LabourHoursByLocationYear": {
+      "identifier": "ajM0p4r3iqsx",
+      "tags": "",
+      "title": "LabourHoursByLocationYear"
+    },
+    "Amar_TestingNullZeroValues_v2": {
+      "identifier": "ad11kakFhZdV",
+      "tags": "",
+      "title": "Amar_TestingNullZeroValues_v2"
+    },
+    "Chihuahua_Location": {
+      "identifier": "ak61j94zhZel",
+      "tags": "",
+      "title": "Chihuahua_Location"
+    },
+    "Texas_SJ": {
+      "identifier": "aqh1jFwNhMFl",
+      "tags": "",
+      "title": "Texas_SJ"
     }
   },
   "dateDataSets": {
