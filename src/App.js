@@ -110,7 +110,8 @@ class App extends React.Component {
   }
 
   onApply(filter) {
-    sdk.md.getObjectUri(projectId, filter.id).then((uri) => {
+    //sdk.md.getObjectUri(projectId, filter.id).then((uri) => {
+      const uri = 'z';
       console.log(uri);
 
       // construct URI link for values
@@ -148,7 +149,7 @@ class App extends React.Component {
       console.log(newFilter);
       debugger;
       this.setState({filter: newFilter});
-    });
+    //});
   }
 
   onMetricChange(value) {
@@ -265,7 +266,7 @@ class App extends React.Component {
               projectId={projectId}
               measures={[measureHelper]}
               trendBy={categoryHelper}
-              filters={filter}
+              //filters={filter}
               config={{
                 colors: ['#14b2e2']
               }}
