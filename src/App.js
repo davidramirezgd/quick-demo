@@ -60,13 +60,12 @@ const filterHelper = Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date
 
 const C = new CatalogHelper(catalogJson);
 
-
 const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'))
   .alias('category');
 
 const statusHelper = Model.attribute(C.attributeDisplayForm('Task Status'))
   .alias('status');
-
+const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Snapshot Date)','Month/Year (Snapshot Date)'));
 const measureHelper = Model.measure(C.measure('Count of Action Items'));
 const measureHelper2 = Model.measure(C.measure('Count of Action Items Closed On Time'));
 
@@ -111,35 +110,45 @@ class App extends React.Component {
   }
 
   onApply(filter) {
-    const filterList = this.state.filter;
-    if (filter.in) {
-      filterList.unshift(Model.positiveAttributeFilter(filter.id, filter.in, true));
-    } else if (filter.notIn) {
-      filterList.unshift(Model.negativeAttributeFilter(filter.id, filter.notIn, true));
-    } else {
-      filterList.unshift(
-        Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),
-          replace(this.state.fromDate, RegExp('/','g'), '-'),
-          replace(this.state.toDate, RegExp('/','g'), '-')
-          )
-        );
-    }
-    console.log(filterList);
-    const newFilter = uniqBy(filterList, function(f) {
-      console.log(f);
-      let key = '';
-      if (f.positiveAttributeFilter) {
-        key = f.positiveAttributeFilter.displayForm.identifier;
-      } else if (f.negativeAttributeFilter) {
-        key = f.negativeAttributeFilter.displayForm.identifier;
+    sdk.md.getObjectUri(projectId, filter.id).then((uri) => {
+      console.log(uri);
+
+      // construct URI link for values
+      const uriPattern = `${uri}/elements?id=`
+
+      const filterList = this.state.filter;
+
+      if (filter.in) {
+        const values = filter.in.map(v => `${uriPattern}${v}`);
+        filterList.unshift(Model.positiveAttributeFilter(filter.id, values));
+      } else if (filter.notIn) {
+        const values = filter.notIn.map(v => `${uriPattern}${v}`);
+        filterList.unshift(Model.negativeAttributeFilter(filter.id, values));
       } else {
-        key = 'date'
+        filterList.unshift(
+          Model.absoluteDateFilter(C.dateDataSet('Date (Snapshot Date)'),
+            replace(this.state.fromDate, RegExp('/','g'), '-'),
+            replace(this.state.toDate, RegExp('/','g'), '-')
+            )
+          );
       }
-      return key
+      console.log(filterList);
+      const newFilter = uniqBy(filterList, function(f) {
+        console.log(f);
+        let key = '';
+        if (f.positiveAttributeFilter) {
+          key = f.positiveAttributeFilter.displayForm.identifier;
+        } else if (f.negativeAttributeFilter) {
+          key = f.negativeAttributeFilter.displayForm.identifier;
+        } else {
+          key = 'date'
+        }
+        return key
+      });
+      console.log(newFilter);
+      debugger;
+      this.setState({filter: newFilter});
     });
-    console.log(newFilter);
-    debugger;
-    this.setState({filter: newFilter});
   }
 
   onMetricChange(value) {
@@ -199,12 +208,12 @@ class App extends React.Component {
           <div>
             <AttributeFilter
               projectId={projectId}
-              filter={Model.negativeAttributeFilter(C.attributeDisplayForm('Task Category'), [], true)}
+              identifier={C.attributeDisplayForm('Task Category')}
               onApply={this.onApply}
             />
             <AttributeFilter
               projectId={projectId}
-              filter={Model.negativeAttributeFilter(C.attributeDisplayForm('Task Status'), [], true)}
+              identifier={C.attributeDisplayForm('Task Status')}
               onApply={this.onApply}
             />
           </div>
@@ -228,33 +237,6 @@ class App extends React.Component {
             <label htmlFor="metric2">Count of Action Items Closed On Time</label>
           </div>
           <div style={{ height: 300 }}>
-            <Visualization
-              projectId={projectId}
-              identifier={'axcTxClhdIXb'}
-              //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
-              config={{
-                legend: {
-                  enabled: true
-                }
-              }}
-              filters={filter}
-            />
-          </div>
-          <div style={{ height: 300 }}>
-            <ColumnChart
-              projectId={projectId}
-              measures={metricList}
-              config={{
-                legend: {
-                  enabled: true
-                }
-              }}
-              //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
-              //viewBy={dateHelper}
-              filters={filter}
-            />
-          </div>
-          <div style={{ height: 300 }}>
             <ColumnChart
               projectId={projectId}
               measures={[measureHelper]}
@@ -275,7 +257,7 @@ class App extends React.Component {
               primaryMeasures={[measureHelper]}
               secondaryMeasures={[measureHelper2]}
               viewBy={categoryHelper}
-              filters={filter}
+              //filters={filter}
             />
           </div>
           <div style={{ height: 300 }}>
