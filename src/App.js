@@ -76,8 +76,8 @@ class App extends React.Component {
 
     this.state = {
       filter: [],
-      fromDate: '2014-01-01',
-      toDate: '2014-01-01',
+      fromDate: '2016/01/01',
+      toDate: '2017/01/01',
       metricList: [measureHelper]
     };
 
@@ -243,6 +243,7 @@ class App extends React.Component {
             <ColumnChart
               projectId={projectId}
               measures={metricList}
+              filters={filter}
               config={{
                 legend: {
                   enabled: true
@@ -250,7 +251,6 @@ class App extends React.Component {
               }}
               //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
               //viewBy={dateHelper}
-              filters={filter}
             />
           </div>
           <div style={{ height: 300 }}>
