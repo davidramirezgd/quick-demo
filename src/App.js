@@ -7,8 +7,7 @@ import {
   CatalogHelper,
   Model,
   ColumnChart,
-  LineChart,
-  Visualization
+  LineChart
 } from '@gooddata/react-components';
 import {factory as SdkFactory} from '@gooddata/gooddata-js';
 import { uniqBy, findIndex, replace } from 'lodash';
@@ -74,8 +73,8 @@ class App extends React.Component {
 
     this.state = {
       filter: [],
-      fromDate: '2014-01-01',
-      toDate: '2014-01-01',
+      fromDate: '2015/01/01',
+      toDate: '2016/01/01',
       metricList: [measureHelper]
     };
 
@@ -137,7 +136,6 @@ class App extends React.Component {
         }
         return key
       });
-      console.log(newFilter);
       this.setState({filter: newFilter});
     });
   }
@@ -149,7 +147,7 @@ class App extends React.Component {
       Model.absoluteDateFilter(C.dateDataSet('Date (Task Assigned Date)'),
         replace(this.state.fromDate, RegExp('/','g'), '-'),
         replace(this.state.toDate, RegExp('/','g'), '-')
-        )
+      )
     );
 
     const newFilter = uniqBy(filterList, function(f) {
@@ -163,7 +161,6 @@ class App extends React.Component {
       }
       return key
     });
-    console.log(newFilter);
     this.setState({filter: newFilter});
   }
 
@@ -262,7 +259,6 @@ class App extends React.Component {
                 }
               }}
               //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
-              //viewBy={dateHelper}
               filters={filter}
             />
           </div>
