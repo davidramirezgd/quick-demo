@@ -7,7 +7,8 @@ import {
   CatalogHelper,
   Model,
   ColumnChart,
-  LineChart
+  LineChart,
+  Visualization
 } from '@gooddata/react-components';
 import {factory as SdkFactory} from '@gooddata/gooddata-js';
 import { uniqBy, findIndex, replace } from 'lodash';
@@ -248,6 +249,19 @@ class App extends React.Component {
               onChange={(e) => this.onMetricChange(e.target.value)}
             />
             <label htmlFor="metric2">Count of Action Items Closed On Time</label>
+          </div>
+          <div style={{ height: 300 }}>
+            <Visualization
+              projectId={projectId}
+              identifier={'axcTxClhdIXb'}
+              filters={filter}
+              //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
+              config={{
+                legend: {
+                  enabled: true
+                }
+              }}
+            />
           </div>
           <div style={{ height: 300 }}>
             <ColumnChart
