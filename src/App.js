@@ -185,6 +185,10 @@ class App extends React.Component {
     this.setState({metricList: newMetricList});
   }
 
+  onLoadingChanged(...params) {
+    console.info("AttributeFilterExample onLoadingChanged", ...params);
+  }
+
   render() {
     const { filter, fromDate, toDate, metricList } = this.state;
 
@@ -255,6 +259,7 @@ class App extends React.Component {
               projectId={projectId}
               identifier={'axcTxClhdIXb'}
               filters={filter}
+              onLoadingChanged={this.onLoadingChanged}
               //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
               config={{
                 legend: {
