@@ -7,8 +7,7 @@ import {
   CatalogHelper,
   Model,
   ColumnChart,
-  LineChart,
-  Visualization
+  LineChart
 } from '@gooddata/react-components';
 import {factory as SdkFactory} from '@gooddata/gooddata-js';
 import { uniqBy, findIndex, replace } from 'lodash';
@@ -63,12 +62,24 @@ const C = new CatalogHelper(catalogJson);
 
 const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'))
   .alias('category');
-
 const statusHelper = Model.attribute(C.attributeDisplayForm('Task Status'))
   .alias('status');
 const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Task Assigned Date)','Month/Year (Task Assigned Date)'));
-const measureHelper = Model.measure(C.measure('Count of Action Items'));
-const measureHelper2 = Model.measure(C.measure('Count of Action Items Closed On Time'));
+const itemsClosedOnTimeMeasure = Model.measure(C.measure('Count of Action Items Closed On Time'));
+
+
+// period over period example
+
+// base metric
+const actionItemsMeasure = Model.measure(C.measure('Count of Action Items'))
+  .localIdentifier('coaa')
+  .alias('# Action Items');
+// same period previous year
+const actionItemsMeasurePrevYear = Model.popMeasure('coaa', C.dateDataSetAttribute('Date (Task Assigned Date)','Year (Task Assigned Date)'))
+  .alias('# Action Items Previous Year');
+// previous period
+const actionItemsMeasurePrevPeriod = Model.previousPeriodMeasure('coaa', [{ dataSet: C.dateDataSet('Date (Task Assigned Date)'), periodsAgo: 1}])
+  .alias('# Action Items Previous Period');
 
 class App extends React.Component {
     constructor(props) {
@@ -76,9 +87,10 @@ class App extends React.Component {
 
     this.state = {
       filter: [],
-      fromDate: '2016/01/01',
-      toDate: '2017/01/01',
-      metricList: [measureHelper]
+      fromDate: '2018/01/01',
+      toDate: '2018/12/31',
+      metricList: [actionItemsMeasure],
+      popMetricList: [actionItemsMeasure]
     };
 
     this.onApply = this.onApply.bind(this);
@@ -146,7 +158,6 @@ class App extends React.Component {
     const metricList = this.state.metricList;
     const mID = C.measure(value)
 
-    // more logic needed here
     const i = findIndex(metricList, function(m) {
       return m.measure.definition.measureDefinition.item.identifier === mID;
     });
@@ -162,7 +173,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { filter, fromDate, toDate, metricList } = this.state;
+    const { filter, fromDate, toDate, metricList, popMetricList } = this.state;
 
     return (
        <div className="App">
@@ -226,17 +237,50 @@ class App extends React.Component {
             />
             <label htmlFor="metric2">Count of Action Items Closed On Time</label>
           </div>
+          <br />
+          <br />
+          <div>Period over Period Selection</div>
+          <div className="radioswitch">
+            <input
+              type="radio"
+              id="pop0"
+              name="pop"
+              value="None"
+              onChange={(e) => this.setState({popMetricList: [actionItemsMeasure]})}
+              defaultChecked
+            />
+            <label htmlFor="metric1">None</label>
+            <input
+              type="radio"
+              id="pop1"
+              name="pop"
+              value="Same Period Previous Year"
+              onChange={(e) => this.setState({popMetricList: [actionItemsMeasurePrevYear,actionItemsMeasure]})}
+            />
+            <label htmlFor="metric1">Same Period Previous Year</label>
+            <input
+              type="radio"
+              id="pop2"
+              name="pop"
+              value="Previous Period"
+              onChange={(e) => this.setState({popMetricList: [actionItemsMeasurePrevPeriod,actionItemsMeasure]})}
+            />
+            <label htmlFor="metric2">Previous Period</label>
+          </div>
           <div style={{ height: 300 }}>
-            <Visualization
+            <ColumnChart
               projectId={projectId}
-              identifier={'axcTxClhdIXb'}
-              //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
+              measures={popMetricList}
+              viewBy={dateHelper}
+              filters={filter}
               config={{
                 legend: {
                   enabled: true
+                },
+                dataLabels: {
+                  visible: true
                 }
               }}
-              filters={filter}
             />
           </div>
           <div style={{ height: 300 }}>
@@ -249,17 +293,30 @@ class App extends React.Component {
                   enabled: true
                 }
               }}
-              //onLegendReady={(legendData) => { console.log(legendData.legendItems); }}
-              //viewBy={dateHelper}
             />
           </div>
           <div style={{ height: 300 }}>
             <ColumnChart
               projectId={projectId}
-              measures={[measureHelper]}
+              measures={[actionItemsMeasure]}
               viewBy={categoryHelper}
               stackBy={statusHelper}
               filters={filter}
+              config={{
+                colors: ['#4287f5','#45ed77','#eda145','#ed4577'],
+                legend: {
+                  enabled: true
+                },
+                xaxis: {
+                  visible: false
+                },
+                yaxis: {
+                  visible: false
+                },
+                grid: {
+                  enabled: false
+                }
+              }}
               drillableItems={[
                 HeaderPredicateFactory.identifierMatch(C.measure('Count of Action Items'))  
               ]}
@@ -271,8 +328,8 @@ class App extends React.Component {
           <div style={{ height: 300 }}>
             <ComboChart
               projectId={projectId}
-              primaryMeasures={[measureHelper]}
-              secondaryMeasures={[measureHelper2]}
+              primaryMeasures={[actionItemsMeasure]}
+              secondaryMeasures={[itemsClosedOnTimeMeasure]}
               viewBy={categoryHelper}
               filters={filter}
             />
@@ -280,7 +337,7 @@ class App extends React.Component {
           <div style={{ height: 300 }}>
             <LineChart
               projectId={projectId}
-              measures={[measureHelper]}
+              measures={[actionItemsMeasure]}
               trendBy={dateHelper}
               filters={filter}
               config={{
