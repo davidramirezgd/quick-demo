@@ -72,13 +72,13 @@ const itemsClosedOnTimeMeasure = Model.measure(C.measure('Count of Action Items 
 
 // base metric
 const actionItemsMeasure = Model.measure(C.measure('Count of Action Items'))
-  .localIdentifier('coaa')
+  .localIdentifier('coai')
   .alias('# Action Items');
 // same period previous year
-const actionItemsMeasurePrevYear = Model.popMeasure('coaa', C.dateDataSetAttribute('Date (Task Assigned Date)','Year (Task Assigned Date)'))
+const actionItemsMeasurePrevYear = Model.popMeasure('coai', C.dateDataSetAttribute('Date (Task Assigned Date)','Year (Task Assigned Date)'))
   .alias('# Action Items Previous Year');
 // previous period
-const actionItemsMeasurePrevPeriod = Model.previousPeriodMeasure('coaa', [{ dataSet: C.dateDataSet('Date (Task Assigned Date)'), periodsAgo: 1}])
+const actionItemsMeasurePrevPeriod = Model.previousPeriodMeasure('coai', [{ dataSet: C.dateDataSet('Date (Task Assigned Date)'), periodsAgo: 1}])
   .alias('# Action Items Previous Period');
 
 class App extends React.Component {
