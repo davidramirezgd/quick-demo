@@ -74,12 +74,25 @@ const itemsClosedOnTimeMeasure = Model.measure(C.measure('Count of Action Items 
 const actionItemsMeasure = Model.measure(C.measure('Count of Action Items'))
   .localIdentifier('coai')
   .alias('# Action Items');
+
 // same period previous year
 const actionItemsMeasurePrevYear = Model.popMeasure('coai', C.dateDataSetAttribute('Date (Task Assigned Date)','Year (Task Assigned Date)'))
   .alias('# Action Items Previous Year');
+
 // previous period
 const actionItemsMeasurePrevPeriod = Model.previousPeriodMeasure('coai', [{ dataSet: C.dateDataSet('Date (Task Assigned Date)'), periodsAgo: 1}])
   .alias('# Action Items Previous Period');
+
+// relative date example
+const relativeDate = Model.relativeDateFilter(C.dateDataSet('Date (Task Assigned Date)'), 'GDC.time.year', -2, -1);
+
+console.log('start');
+sdk.md.getObjectUri(projectId, 'label.taskfact.taskstatus').then((uri) => {
+  console.log(uri);
+  sdk.md.getValidElements(projectId,'2488').then((obj) => {
+    console.log(obj.validElements.items[0].element.title);
+  })
+});
 
 class App extends React.Component {
     constructor(props) {
@@ -87,8 +100,8 @@ class App extends React.Component {
 
     this.state = {
       filter: [],
-      fromDate: '2018/01/01',
-      toDate: '2018/12/31',
+      fromDate: '2019/01/01',
+      toDate: '2019/03/31',
       metricList: [actionItemsMeasure],
       popMetricList: [actionItemsMeasure]
     };
