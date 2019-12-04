@@ -7,7 +7,8 @@ import {
   CatalogHelper,
   Model,
   ColumnChart,
-  LineChart
+  LineChart,
+  AttributeElements
 } from '@gooddata/react-components';
 import {factory as SdkFactory} from '@gooddata/gooddata-js';
 import { uniqBy, findIndex, replace } from 'lodash';
@@ -17,6 +18,7 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
 } from '@material-ui/pickers';
+import PropTypes from 'prop-types';
 import catalogJson from './catalog.json';
 
 import '@gooddata/react-components/styles/css/main.css';
@@ -84,15 +86,86 @@ const actionItemsMeasurePrevPeriod = Model.previousPeriodMeasure('coai', [{ data
   .alias('# Action Items Previous Period');
 
 // relative date example
-const relativeDate = Model.relativeDateFilter(C.dateDataSet('Date (Task Assigned Date)'), 'GDC.time.year', -2, -1);
+// const relativeDate = Model.relativeDateFilter(C.dateDataSet('Date (Task Assigned Date)'), 'GDC.time.year', -2, -1);
 
-console.log('start');
-sdk.md.getObjectUri(projectId, 'label.taskfact.taskstatus').then((uri) => {
+sdk.md.getObjectUri(projectId, C.attributeDisplayForm('Task Status')).then((uri) => {
   console.log(uri);
-  sdk.md.getValidElements(projectId,'2488').then((obj) => {
-    console.log(obj.validElements.items[0].element.title);
+  const objId = uri.split('/')[5];
+  sdk.md.getValidElements(projectId,objId).then((obj) => {
+    console.log(obj.validElements.items);
   })
 });
+
+export class AttributeFilterItem extends React.Component {
+    static propTypes = {
+        title: PropTypes.string.isRequired,
+        uri: PropTypes.string.isRequired
+    };
+
+    onChange(uri) {
+        // eslint-disable-next-line no-console
+        return event => console.log('AttributeFilterItem onChange', uri, event.target.value === 'on');
+    }
+
+    render() {
+        const { title, uri } = this.props;
+        return (
+            <label className="gd-list-item s-attribute-filter-list-item" style={{ display: 'inline-flex' }}>
+                <input type="checkbox" className="gd-input-checkbox" onChange={this.onChange(uri)} />
+                <span>{title}</span>
+            </label>
+        );
+    }
+}
+
+export class AttributeElementsExample extends React.Component {
+    render() {
+        return (
+            <div style={{ minHeight: 500 }}>
+                <AttributeElements identifier={C.attributeDisplayForm('Task Status')} projectId={projectId} options={{ limit: 20 }}>
+                    {({ validElements, loadMore, isLoading, error }) => {
+                        const {
+                            offset = null,
+                            count = null,
+                            total = null
+                        } = validElements ? validElements.paging : {};
+                        if (error) {
+                            return <div>{error}</div>;
+                        }
+                        return (
+                            <div>
+                                <button
+                                    className="button button-secondary s-show-more-filters-button"
+                                    onClick={loadMore}
+                                    disabled={isLoading || (offset + count === total)}
+                                >More
+                                </button>
+                                <h2>validElements</h2>
+                                <pre>
+                                    isLoading: {isLoading.toString()}<br />
+                                    offset: {offset}<br />
+                                    count: {count}<br />
+                                    total: {total}<br />
+                                    nextOffset: {offset + count}
+                                </pre>
+                                <div>
+                                    {validElements ? validElements.items.map(item => (
+                                        <AttributeFilterItem
+                                            key={item.element.uri}
+                                            uri={item.element.uri}
+                                            title={item.element.title}
+                                        />
+                                    )) : null}
+                                </div>
+                                {validElements ? <pre>{JSON.stringify(validElements, null, '  ')}</pre> : null}
+                            </div>
+                        );
+                    }}
+                </AttributeElements>
+            </div>
+        );
+    }
+}
 
 class App extends React.Component {
     constructor(props) {
@@ -190,6 +263,7 @@ class App extends React.Component {
 
     return (
        <div className="App">
+       <AttributeElementsExample />
           <div>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <Grid container justify="space-around">
@@ -287,6 +361,7 @@ class App extends React.Component {
               viewBy={dateHelper}
               filters={filter}
               config={{
+                //colorMapping: ['#4287f5','#45ed77','#eda145','#ed4577'],
                 legend: {
                   enabled: true
                 },
