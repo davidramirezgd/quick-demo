@@ -1,4 +1,5 @@
 import 'date-fns';
+import { parse, format, endOfMonth } from 'date-fns';
 import React from 'react';
 import {
   ComboChart,
@@ -63,10 +64,13 @@ const C = new CatalogHelper(catalogJson);
 
 
 const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'))
-  .alias('category');
+  .alias('category')
+  .localIdentifier('localIdCategory');
 const statusHelper = Model.attribute(C.attributeDisplayForm('Task Status'))
-  .alias('status');
+  .alias('status')
+  .localIdentifier('localIdStatus');
 const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Task Assigned Date)','Month/Year (Task Assigned Date)'));
+const dateHelperDay = Model.attribute(C.dateDataSetDisplayForm('Date (Task Assigned Date)','Date (Task Assigned Date)'));
 const itemsClosedOnTimeMeasure = Model.measure(C.measure('Count of Action Items Closed On Time'));
 
 
@@ -121,7 +125,7 @@ export class AttributeFilterItem extends React.Component {
 export class AttributeElementsExample extends React.Component {
     render() {
         return (
-            <div style={{ minHeight: 500 }}>
+            <div style={{ minHeight: 300 }}>
                 <AttributeElements identifier={C.attributeDisplayForm('Task Status')} projectId={projectId} options={{ limit: 20 }}>
                     {({ validElements, loadMore, isLoading, error }) => {
                         const {
@@ -157,7 +161,6 @@ export class AttributeElementsExample extends React.Component {
                                         />
                                     )) : null}
                                 </div>
-                                {validElements ? <pre>{JSON.stringify(validElements, null, '  ')}</pre> : null}
                             </div>
                         );
                     }}
@@ -176,7 +179,9 @@ class App extends React.Component {
       fromDate: '2019/01/01',
       toDate: '2019/03/31',
       metricList: [actionItemsMeasure],
-      popMetricList: [actionItemsMeasure]
+      popMetricList: [actionItemsMeasure],
+      drilled: false,
+      drillFilter: []
     };
 
     this.onApply = this.onApply.bind(this);
@@ -205,7 +210,19 @@ class App extends React.Component {
   }
 
   handleDrill(arg) {
+    // Drill to day chart for specific month
     console.log(arg);
+    const month = arg.drillContext.intersection[1].title;
+    const fromDate = parse(month,'MMM yyyy', new Date());
+    const toDate = endOfMonth(fromDate);
+
+    const dateFilter = [
+      Model.absoluteDateFilter(C.dateDataSet('Date (Task Assigned Date)'),
+          format(fromDate, 'yyyy-MM-dd'),
+          format(toDate, 'yyyy-MM-dd')
+        )
+    ];
+    this.setState({drilled: true, drillFilter: dateFilter});
   }
 
   onApply(filter) {
@@ -259,7 +276,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { filter, fromDate, toDate, metricList, popMetricList } = this.state;
+    const { filter, fromDate, toDate, metricList, popMetricList, drilled, drillFilter } = this.state;
 
     return (
        <div className="App">
@@ -390,13 +407,19 @@ class App extends React.Component {
               viewBy={categoryHelper}
               stackBy={statusHelper}
               filters={filter}
+              sortBy={[
+                Model.measureSortItem('coai', 'asc')
+                  .attributeLocators({
+                    attributeIdentifier: 'localIdStatus', element: '/gdc/md/i6q0z85ef4hj57n9tms73bwe3zpgognw/obj/2487/elements?id=10084'
+                  })
+              ]}
               config={{
                 colors: ['#4287f5','#45ed77','#eda145','#ed4577'],
                 legend: {
                   enabled: true
                 },
                 xaxis: {
-                  visible: false
+                  visible: true
                 },
                 yaxis: {
                   visible: false
@@ -420,6 +443,8 @@ class App extends React.Component {
               secondaryMeasures={[itemsClosedOnTimeMeasure]}
               viewBy={categoryHelper}
               filters={filter}
+              sortBy={[Model.attributeSortItem('localIdCategory', 'desc')]}
+              // sortBy={[Model.measureSortItem('coai', 'asc')]}
             />
           </div>
           <div style={{ height: 300 }}>
@@ -437,6 +462,20 @@ class App extends React.Component {
               onFiredDrillEvent={this.handleDrill}
             />
           </div>
+          {
+            drilled &&
+            <div style={{ height: 300 }}>
+              <LineChart
+                projectId={projectId}
+                measures={[actionItemsMeasure]}
+                trendBy={dateHelperDay}
+                filters={drillFilter}
+                config={{
+                  colors: ['#14b2e2']
+                }}
+              />
+            </div>
+          }
        </div>
     );
   }
