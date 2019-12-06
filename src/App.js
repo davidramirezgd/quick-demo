@@ -212,6 +212,8 @@ class App extends React.Component {
   handleDrill(arg) {
     // Drill to day chart for specific month
     console.log(arg);
+
+    
     const month = arg.drillContext.intersection[1].title;
     const fromDate = parse(month,'MMM yyyy', new Date());
     const toDate = endOfMonth(fromDate);
@@ -223,6 +225,7 @@ class App extends React.Component {
         )
     ];
     this.setState({drilled: true, drillFilter: dateFilter});
+    
   }
 
   onApply(filter) {
@@ -410,9 +413,10 @@ class App extends React.Component {
               sortBy={[
                 Model.measureSortItem('coai', 'asc')
                   .attributeLocators({
-                    attributeIdentifier: 'localIdStatus', element: '/gdc/md/i6q0z85ef4hj57n9tms73bwe3zpgognw/obj/2487/elements?id=10084'
+                    attributeIdentifier: 'localIdStatus', element: '/gdc/md/i6q0z85ef4hj57n9tms73bwe3zpgognw/obj/2487/elements?id=10099'
                   })
               ]}
+              //sortBy={[Model.measureSortItem('coai', 'asc')]}
               config={{
                 colors: ['#4287f5','#45ed77','#eda145','#ed4577'],
                 legend: {
@@ -443,8 +447,12 @@ class App extends React.Component {
               secondaryMeasures={[itemsClosedOnTimeMeasure]}
               viewBy={categoryHelper}
               filters={filter}
-              sortBy={[Model.attributeSortItem('localIdCategory', 'desc')]}
-              // sortBy={[Model.measureSortItem('coai', 'asc')]}
+              //sortBy={[Model.attributeSortItem('localIdCategory', 'asc')]}
+              sortBy={[Model.measureSortItem('coai', 'asc')]}
+              drillableItems={[
+                HeaderPredicateFactory.identifierMatch(C.measure('Count of Action Items'))
+              ]}
+              onFiredDrillEvent={this.handleDrill}
             />
           </div>
           <div style={{ height: 300 }}>
