@@ -410,12 +410,12 @@ class App extends React.Component {
               viewBy={categoryHelper}
               stackBy={statusHelper}
               filters={filter}
-              sortBy={[
-                Model.measureSortItem('coai', 'asc')
-                  .attributeLocators({
-                    attributeIdentifier: 'localIdStatus', element: '/gdc/md/i6q0z85ef4hj57n9tms73bwe3zpgognw/obj/2487/elements?id=10099'
-                  })
-              ]}
+              //sortBy={[
+              //  Model.measureSortItem('coai', 'asc')
+              //    .attributeLocators({
+              //      attributeIdentifier: 'localIdStatus', element: '/gdc/md/i6q0z85ef4hj57n9tms73bwe3zpgognw/obj/2487/elements?id=10099'
+              //    })
+              //]}
               //sortBy={[Model.measureSortItem('coai', 'asc')]}
               config={{
                 colors: ['#4287f5','#45ed77','#eda145','#ed4577'],

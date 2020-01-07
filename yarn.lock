@@ -952,10 +952,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.7.3.tgz#a166882c81c0c6040975dd30df24fae8549bd96f"
   integrity sha512-14ZVlsB9akwvydAdaEnVnvqu6J2P6ySv39hYyl/aoB6w/V+bXX0tay8cF6paqbgZsN2n5Xh15uF4pE+GvE+itw==
 
-"@gooddata/gooddata-js@^11.21.1":
-  version "11.21.2"
-  resolved "https://registry.yarnpkg.com/@gooddata/gooddata-js/-/gooddata-js-11.21.2.tgz#5a4b6d036611d796b21b19a259838687bfec7908"
-  integrity sha512-t6batL569n7DpdVtPUpC/GtmUkNAo0Zkiavrkr8LmpdEJS3s9iwJTv/tnAx4yvwP3CpPHcy9WqWb/lzje6fyTg==
+"@gooddata/gooddata-js@^12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@gooddata/gooddata-js/-/gooddata-js-12.0.0.tgz#b7e717688165500930ea3a35de7fc0dbb9122a77"
+  integrity sha512-A9dbIfqiFGHIcdZvToP0l0aWSQpgX1y6paydVhrNdbuetmi4C5cgfE8NLbQVFI+qkFAVdtPZlmsV+p5BJY0Jrg==
   dependencies:
     "@gooddata/typings" "^2.19.0"
     es6-promise "^3.0.2"
@@ -970,13 +970,13 @@
     rxjs "^5.5.6"
     uuid "^3.2.1"
 
-"@gooddata/goodstrap@^64.6.0":
-  version "64.6.6"
-  resolved "https://registry.yarnpkg.com/@gooddata/goodstrap/-/goodstrap-64.6.6.tgz#52d7ebbac7dbb6c99a1dde8320f5130051094190"
-  integrity sha512-Gkm6/xaSC614nrbdu5zgXNNy/O+EJat52J2RVlrTmCWRtUW3iI5nFjo661NTPRXl9+eaz//II1ig0Z94Y1/wnQ==
+"@gooddata/goodstrap@^65.0.0":
+  version "65.1.4"
+  resolved "https://registry.yarnpkg.com/@gooddata/goodstrap/-/goodstrap-65.1.4.tgz#fe92c969b11f8b088a0c7f061dc0ad8b87a340d9"
+  integrity sha512-nXeLbq8Mv09G2kAfadm8LdsPgeqmi5c/QYQKw74+lxrOL9X8kcSDsGU3NO/8BU6QR2AGHVZu0vLD59lF7HhA4w==
   dependencies:
     "@gooddata/js-utils" "^3.5.0"
-    babel-runtime "6.25.0"
+    babel-runtime "^6.26.0"
     classnames "^2.2.6"
     custom-event "^1.0.1"
     element-closest-polyfill "^1.0.0"
@@ -1014,13 +1014,13 @@
   resolved "https://registry.yarnpkg.com/@gooddata/numberjs/-/numberjs-3.2.3.tgz#3035684383cc9cb8ea5be41a98e9e916355691ac"
   integrity sha512-0MO6PI+pPFqj2eoqy7ws+FfY0rBcZeEZnma/HTzipwddSIyP6A2K3oO9a7fPhA9jygcjZeXdfnjqT01OA0o3Lw==
 
-"@gooddata/react-components@7.2.0-beta.96":
-  version "7.2.0-beta.96"
-  resolved "https://registry.yarnpkg.com/@gooddata/react-components/-/react-components-7.2.0-beta.96.tgz#5db33cc4ff363c25096728285a33edf1e4e4ab7e"
-  integrity sha512-qQNPxYn1MV3WBv5flgRyzaFrpVQoLNZ1R7c9rjSTz8QucUfV6OlbT0go3l6Qj2BzqHpDTb9N7jK8K9vQy9njpQ==
+"@gooddata/react-components@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@gooddata/react-components/-/react-components-7.2.0.tgz#d02464fead162e981cfa73568f516eee04dcebcd"
+  integrity sha512-Cn0VZwRCjA8IQWYBIql8Apy2AlHFwhugWq5hvV9dyMHnDxaFNus9Dev+OwIwIlROvs4OEHVofboMHU97ML/nfA==
   dependencies:
-    "@gooddata/gooddata-js" "^11.21.1"
-    "@gooddata/goodstrap" "^64.6.0"
+    "@gooddata/gooddata-js" "^12.0.0"
+    "@gooddata/goodstrap" "^65.0.0"
     "@gooddata/js-utils" "^3.5.0"
     "@gooddata/numberjs" "^3.2.3"
     "@gooddata/typings" "^2.19.0"
@@ -2241,14 +2241,6 @@ babel-preset-react-app@^9.0.1:
     babel-plugin-dynamic-import-node "2.3.0"
     babel-plugin-macros "2.6.1"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
-
-babel-runtime@6.25.0:
-  version "6.25.0"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.25.0.tgz#33b98eaa5d482bb01a8d1aa6b437ad2b01aec41c"
-  integrity sha1-M7mOql1IK7AajRqmtDetKwGuxBw=
-  dependencies:
-    core-js "^2.4.0"
-    regenerator-runtime "^0.10.0"
 
 babel-runtime@^6.26.0:
   version "6.26.0"
@@ -8988,11 +8980,6 @@ regenerator-runtime@0.13.3, regenerator-runtime@^0.13.2:
   version "0.13.3"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.3.tgz#7cf6a77d8f5c6f60eb73c5fc1955b2ceb01e6bf5"
   integrity sha512-naKIZz2GQ8JWh///G7L3X6LaQUAMp2lvb1rvwwsURe/VXwD6VMfr+/1NuNw3ag8v2kY1aQ/go5SNn79O9JU7yw==
-
-regenerator-runtime@^0.10.0:
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz#336c3efc1220adcedda2c9fab67b5a7955a33658"
-  integrity sha1-M2w+/BIgrc7dosn6tntaeVWjNlg=
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"
