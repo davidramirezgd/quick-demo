@@ -9,7 +9,9 @@ import {
   Model,
   ColumnChart,
   LineChart,
-  AttributeElements
+  AttributeElements,
+  DateFilter,
+  DateFilterHelpers
 } from '@gooddata/react-components';
 import {factory as SdkFactory} from '@gooddata/gooddata-js';
 import { uniqBy, findIndex, replace } from 'lodash';
@@ -23,10 +25,11 @@ import PropTypes from 'prop-types';
 import catalogJson from './catalog.json';
 
 import '@gooddata/react-components/styles/css/main.css';
+import "@gooddata/react-components/styles/css/dateFilter.css";
 
 import './App.css';
 
-let projectId = 'i6q0z85ef4hj57n9tms73bwe3zpgognw';
+let projectId = 'ppn8c4je105xsgdv37k59pcvt8lomyhf';
 const sdk = SdkFactory();
 
 // sdk.user.logout();
@@ -170,6 +173,163 @@ export class AttributeElementsExample extends React.Component {
     }
 }
 
+let dateFrom = new Date();
+dateFrom.setMonth(dateFrom.getMonth() - 1);
+
+const dateFilterOptions = {
+    allTime: {
+        localIdentifier: "d1f74327-022c-44bb-a98e-b38a6178b7f9",
+        type: "allTime",
+        name: "All time",
+        visible: true,
+    },
+    absoluteForm: {
+        localIdentifier: "90bad814-a193-429f-b88c-118cd00f2168",
+        type: "absoluteForm",
+        from: dateFrom.toISOString().substr(0, 10), // 'YYYY-MM-DD'
+        to: new Date().toISOString().substr(0, 10), // 'YYYY-MM-DD'
+        name: "Static period",
+        visible: true,
+    },
+    relativeForm: {
+        localIdentifier: "1389c988-6159-4f08-bdbd-b4cc02d2689d",
+        type: "relativeForm",
+        granularity: "GDC.time.month",
+        name: "Floating range",
+        visible: true,
+        availableGranularities: ["GDC.time.date", "GDC.time.month", "GDC.time.quarter", "GDC.time.year"],
+        from: 0,
+        to: -1,
+    },
+    absolutePreset: [
+        {
+            from: "2019-12-01",
+            to: "2019-12-31",
+            name: "December 2019",
+            localIdentifier: "4cd37951-9559-4eff-8750-7b7829b5a3ce",
+            visible: true,
+            type: "absolutePreset",
+        },
+        {
+            from: "2018-01-01",
+            to: "2018-12-31",
+            name: "Year 2018",
+            localIdentifier: "d12f83c4-f4e4-485a-8fa5-ec2fc0c889fb",
+            visible: true,
+            type: "absolutePreset",
+        },
+    ],
+    relativePreset: {
+        "GDC.time.date": [
+            {
+                from: -6,
+                to: 0,
+                granularity: "GDC.time.date",
+                localIdentifier: "fae8aca1-6bcf-456e-8547-e10656859f4d",
+                type: "relativePreset",
+                visible: true,
+                name: "Last 7 days",
+            },
+            {
+                from: -29,
+                to: 0,
+                granularity: "GDC.time.date",
+                localIdentifier: "29bd0e2d-51b0-42f7-9355-70aa610ac06c",
+                type: "relativePreset",
+                visible: true,
+                name: "Last 30 days",
+            },
+            {
+                from: -89,
+                to: 0,
+                granularity: "GDC.time.date",
+                localIdentifier: "9370c647-8cbe-4850-82c2-0783513e4fe3",
+                type: "relativePreset",
+                visible: true,
+                name: "Last 90 days",
+            },
+        ],
+        "GDC.time.month": [
+            {
+                from: 0,
+                to: 0,
+                granularity: "GDC.time.month",
+                localIdentifier: "ec54d656-bbea-4559-b6b2-9de80951eb20",
+                type: "relativePreset",
+                visible: true,
+                name: "This month",
+            },
+            {
+                from: -1,
+                to: -1,
+                granularity: "GDC.time.month",
+                localIdentifier: "0787513c-ec02-439f-9781-7da80db91a27",
+                type: "relativePreset",
+                visible: true,
+                name: "Last month",
+            },
+            {
+                from: -11,
+                to: 0,
+                granularity: "GDC.time.month",
+                localIdentifier: "b2790ff0-48ba-402f-a3b3-6722e325042b",
+                type: "relativePreset",
+                visible: true,
+                name: "Last 12 months",
+            },
+        ],
+        "GDC.time.quarter": [
+            {
+                from: 0,
+                to: 0,
+                granularity: "GDC.time.quarter",
+                localIdentifier: "cdf546a5-4394-4583-9a7d-ab35e880f54b",
+                type: "relativePreset",
+                visible: true,
+                name: "This quarter",
+            },
+            {
+                from: -1,
+                to: -1,
+                granularity: "GDC.time.quarter",
+                localIdentifier: "bb5364ba-0c0e-44d9-8cfc-f8ee995dcb53",
+                type: "relativePreset",
+                visible: true,
+                name: "Last quarter",
+            },
+            {
+                from: -3,
+                to: 0,
+                granularity: "GDC.time.quarter",
+                localIdentifier: "9b838d14-c88d-4652-bf79-08b895688cd8",
+                type: "relativePreset",
+                visible: true,
+                name: "Last 4 quarters",
+            },
+        ],
+        "GDC.time.year": [
+            {
+                from: 0,
+                to: 0,
+                granularity: "GDC.time.year",
+                localIdentifier: "d5e444df-67f6-4034-8b80-0bb0f6c6a210",
+                type: "relativePreset",
+                visible: true,
+                name: "This year",
+            },
+            {
+                from: -1,
+                to: -1,
+                granularity: "GDC.time.year",
+                localIdentifier: "eecbe244-8560-466d-876c-4d3cc96ea61a",
+                type: "relativePreset",
+                visible: true,
+                name: "Last year",
+            }
+        ]
+    }
+};
+
 class App extends React.Component {
     constructor(props) {
     super(props);
@@ -185,6 +345,7 @@ class App extends React.Component {
     };
 
     this.onApply = this.onApply.bind(this);
+    this.onApply2 = this.onApply2.bind(this);
     this.handleDrill = this.handleDrill.bind(this);
     this.onExportReady = this.onExportReady.bind(this);
     this.doExport = this.doExport.bind(this);
@@ -278,12 +439,38 @@ class App extends React.Component {
     this.setState({metricList: newMetricList});
   }
 
+  onApply2(value) {
+    console.log(value);
+  }
+
   render() {
     const { filter, fromDate, toDate, metricList, popMetricList, drilled, drillFilter } = this.state;
 
+    const CustomError = ({
+        code,
+        message,
+        description,
+        icon
+    }) => (
+        <div>
+            {message}
+        </div>
+    );
+
     return (
        <div className="App">
-       <AttributeElementsExample />
+          <div style={{ width: 200 }}>
+            <DateFilter
+                excludeCurrentPeriod={false}
+                selectedFilterOption={dateFilterOptions.allTime}
+                filterOptions={dateFilterOptions}
+                // availableGranularities={["GDC.time.month","GDC.time.year","GDC.time.quarter","GDC.time.date"]}
+                availableGranularities={["GDC.time.date"]}
+                customFilterName="GD Date Filter"
+                dateFilterMode="active"
+                onApply={this.onApply2}
+            />
+          </div>
           <div>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <Grid container justify="space-around">
@@ -458,7 +645,7 @@ class App extends React.Component {
           <div style={{ height: 300 }}>
             <LineChart
               projectId={projectId}
-              measures={[actionItemsMeasure]}
+              measures={['actionItemsMeasure']}
               trendBy={dateHelper}
               filters={filter}
               config={{
@@ -468,6 +655,10 @@ class App extends React.Component {
                 HeaderPredicateFactory.identifierMatch(C.measure('Count of Action Items'))  
               ]}
               onFiredDrillEvent={this.handleDrill}
+              ErrorComponent={CustomError}
+              onError={(e) => {
+                console.log('onError', JSON.stringify(e));
+              }}
             />
           </div>
           {

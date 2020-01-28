@@ -5,9 +5,9 @@ module.exports = function (app) {
          "changeOrigin": true,
          "cookieDomainRewrite": "localhost",
          "secure": false,
-         "target": "https://ehs-dev.na.gooddata.com",
+         "target": "https://servicesdemo.na.gooddata.com",
          "headers": {
-             "host": "ehs-dev.na.gooddata.com",
+             "host": "servicesdemo.na.gooddata.com",
              "origin": null
          },
          "onProxyReq": function(proxyReq, req, res) {
@@ -17,11 +17,11 @@ module.exports = function (app) {
      app.use(proxy("/*.html", {
          "changeOrigin": true,
          "secure": false,
-         "target": "https://ehs-dev.na.gooddata.com"
+         "target": "https://servicesdemo.na.gooddata.com"
      }));
      app.use(proxy("/packages/*.{js,css}", {
          "changeOrigin": true,
          "secure": false,
-         "target": "https://ehs-dev.na.gooddata.com"
+         "target": "https://servicesdemo.na.gooddata.com"
      }));
  };
