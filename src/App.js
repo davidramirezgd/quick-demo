@@ -5,7 +5,9 @@ import {
   Model,
   ColumnChart,
   LineChart,
-  Visualization
+  Visualization,
+  Execute,
+  isEmptyResult
 } from '@gooddata/react-components';
 import { uniqBy, replace } from 'lodash';
 import catalogJson from './catalog.json';
@@ -19,31 +21,9 @@ let projectId = 'ppn8c4je105xsgdv37k59pcvt8lomyhf';
 const C = new CatalogHelper(catalogJson);
 
 
-const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'))
-  .alias('category')
-  .localIdentifier('localIdCategory');
-const statusHelper = Model.attribute(C.attributeDisplayForm('Task Status'))
-  .alias('status')
-  .localIdentifier('localIdStatus');
-const dateHelper = Model.attribute(C.dateDataSetDisplayForm('Date (Task Assigned Date)','Month/Year (Task Assigned Date)'));
-const dateHelperDay = Model.attribute(C.dateDataSetDisplayForm('Date (Task Assigned Date)','Date (Task Assigned Date)'));
-const itemsClosedOnTimeMeasure = Model.measure(C.measure('Count of Action Items Closed On Time'));
+const categoryHelper = Model.attribute(C.attributeDisplayForm('Task Category'));
 
-
-// period over period example
-
-// base metric
-const actionItemsMeasure = Model.measure(C.measure('Count of Action Items'))
-  .localIdentifier('coai')
-  .alias('# Action Items');
-
-// same period previous year
-const actionItemsMeasurePrevYear = Model.popMeasure('coai', C.dateDataSetAttribute('Date (Task Assigned Date)','Year (Task Assigned Date)'))
-  .alias('# Action Items Previous Year');
-
-// previous period
-const actionItemsMeasurePrevPeriod = Model.previousPeriodMeasure('coai', [{ dataSet: C.dateDataSet('Date (Task Assigned Date)'), periodsAgo: 1}])
-  .alias('# Action Items Previous Period');
+const actionItemsMeasure = Model.measure(C.measure('Count of Action Items'));
 
 
 class App extends React.Component {
@@ -71,7 +51,6 @@ class App extends React.Component {
           )
         );
     }
-    console.log(filterList);
     const newFilter = uniqBy(filterList, function(f) {
       console.log(f);
       let key = '';
@@ -84,12 +63,47 @@ class App extends React.Component {
       }
       return key
     });
-    console.log(newFilter);
     this.setState({filter: newFilter});
   }
 
   render() {
     const { filter } = this.state;
+
+    const afm = {
+      measures: [
+        {
+          localIdentifier: "5d80620cff9b485a8e533a34ed995a32",
+          definition: {
+            measure: {
+              item: {
+                uri: "/gdc/md/ppn8c4je105xsgdv37k59pcvt8lomyhf/obj/2532"
+              }
+            }
+          },
+          alias: "Count of Action Items"
+        },
+        {
+          localIdentifier: "2c3617dfb96d4f16a0123c9392c1bc2e",
+          definition: {
+            measure: {
+              item: {
+                uri: "/gdc/md/ppn8c4je105xsgdv37k59pcvt8lomyhf/obj/2568"
+              }
+            }
+          },
+          alias: "Count of Action Items Closed On Time"
+        }
+      ],
+      attributes: [
+        {
+          displayForm: {
+            uri: "/gdc/md/ppn8c4je105xsgdv37k59pcvt8lomyhf/obj/2492"
+          },
+          localIdentifier: "159a8c436ad441c2a62bcc22a8618680"
+        }
+      ],
+      filters: filter
+    };
 
     return (
        <div className="App">
@@ -112,14 +126,32 @@ class App extends React.Component {
               filters={filter}
             />
           </div>
+          <div>
+            <Execute
+              afm={afm}
+              projectId={projectId}
+            >
+              {
+                (execution) => {
+                  const { isLoading, error, result } = execution;
+                  if (isLoading) {
+                      return (<div>Loading data...</div>);
+                  } else if (error) {
+                      return (<div>There was an error</div>);
+                  }
+
+                  return isEmptyResult(result) ? (<div>Empty result</div>) : (<div>{JSON.stringify(result.executionResult)}</div>);
+                }
+              }
+            </Execute>
+          </div>
           <div style={{ height: 300 }}>
             <ColumnChart
               projectId={projectId}
               measures={[actionItemsMeasure]}
-              viewBy={dateHelper}
+              viewBy={categoryHelper}
               filters={filter}
               config={{
-                //colorMapping: ['#4287f5','#45ed77','#eda145','#ed4577'],
                 legend: {
                   enabled: true
                 },
@@ -133,7 +165,7 @@ class App extends React.Component {
             <LineChart
               projectId={projectId}
               measures={[actionItemsMeasure]}
-              trendBy={dateHelper}
+              trendBy={categoryHelper}
               filters={filter}
               config={{
                 colors: ['#14b2e2']
