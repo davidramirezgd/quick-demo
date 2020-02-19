@@ -38,7 +38,8 @@ class App extends React.Component {
   }
 
   onApply(filter) {
-    const filterList = this.state.filter;
+    const filterList = [...this.state.filter];
+    debugger;
     if (filter.in) {
       filterList.unshift(Model.positiveAttributeFilter(filter.id, filter.in, true));
     } else if (filter.notIn) {
